@@ -43,14 +43,14 @@
          * Log levels and their priorities
          * @var array
          */
-        private static $priority = [self::DEBUG     => 0,
-                                    self::INFO      => 1,
-                                    self::NOTICE    => 2,
-                                    self::WARNING   => 3,
-                                    self::ERROR     => 4,
-                                    self::CRITICAL  => 5,
-                                    self::ALERT     => 6,
-                                    self::EMERGENCY => 7];
+        private static $priority = [self::DEBUG     => 1,
+                                    self::INFO      => 2,
+                                    self::NOTICE    => 3,
+                                    self::WARNING   => 4,
+                                    self::ERROR     => 5,
+                                    self::CRITICAL  => 6,
+                                    self::ALERT     => 7,
+                                    self::EMERGENCY => 8];
 
         /**
          * Constructor
@@ -103,8 +103,10 @@
             } else {
                 $dir = dirname($path);
 
+                var_dump($dir);
+
                 if (!file_exists($dir)) {
-                    throw new LogException('The directory does not exist: ' . $dir);
+                    throw new LogException('The directory does not exist: ' . $dir, LogException::E_INVALID_PATH);
                 } else {
                     $this->savePath = $path;
                 }
@@ -236,6 +238,8 @@
                        fclose($fp)];
 
                 return !in_array(false, $ok, true);
+            } else {
+                trigger_error('Failed to open log file ' . $this->savePath, E_USER_WARNING);
             }
 
             return false;
