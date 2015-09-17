@@ -4,6 +4,4 @@
 
     if (file_exists($f)) {
         include_once $f;
-    } else {
-        echo 'NO!';
     }
