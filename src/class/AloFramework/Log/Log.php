@@ -7,6 +7,18 @@
     use Psr\Log\LoggerTrait;
     use Psr\Log\InvalidArgumentException;
 
+    require_once __DIR__ .
+                 DIRECTORY_SEPARATOR .
+                 '..' .
+                 DIRECTORY_SEPARATOR .
+                 '..' .
+                 DIRECTORY_SEPARATOR .
+                 '..' .
+                 DIRECTORY_SEPARATOR .
+                 '..' .
+                 DIRECTORY_SEPARATOR .
+                 'autoload_composer.php';
+
     /**
      * AloFramework logger
      * @author Art <a.molcanovas@gmail.com>
