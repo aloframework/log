@@ -36,5 +36,10 @@
   },
   "suggest": {
     "aloframework/aloframework": "The complete stack with all the components"
+  },
+  "autoload": {
+    "files": [
+      "autoload_composer.php"
+    ]
   }
 }
