@@ -2,6 +2,7 @@
 
     namespace AloFramework\Log;
 
+    use Psr\Log\LoggerInterface;
     use Psr\Log\LogLevel;
     use Psr\Log\LoggerTrait;
     use Psr\Log\InvalidArgumentException;
@@ -10,7 +11,7 @@
      * AloFramework logger
      * @author Art <a.molcanovas@gmail.com>
      */
-    class Log extends LogLevel {
+    class Log extends LogLevel implements LoggerInterface {
 
         use LoggerTrait;
 
@@ -34,9 +35,9 @@
 
         /**
          * Log element separator
-         * @author Art <a.molcanovas@gmail.com>
+         * @var string
          */
-        const SEPARATOR = '|';
+        private static $SEPARATOR = '|';
 
         /**
          * Log levels and their priorities
@@ -162,9 +163,11 @@
         /**
          * Logs with an arbitrary level.
          *
-         * @param mixed  $level
-         * @param string $message
-         * @param array  $context
+         * @param string $level   The message's log level
+         * @param string $message The message
+         * @param array  $context The message context/placeholder asociative array
+         *
+         * @throws InvalidArgumentException When the log level is invalid
          *
          * @return bool Whether the message has been written
          */
@@ -179,6 +182,15 @@
             }
         }
 
+        /**
+         * Performs the actual log operation
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param string $level   Log level
+         * @param string $message Raw message
+         *
+         * @return bool
+         */
         private function doWrite($level, $message) {
             $fp = fopen($this->savePath, 'ab');
 
@@ -197,23 +209,23 @@
                 $message =
                     $level .
                     ' ' .
-                    self::SEPARATOR .
+                    self::$SEPARATOR .
                     ' ' .
                     date('Y-m-d H:i:s') .
                     ' ' .
-                    self::SEPARATOR .
+                    self::$SEPARATOR .
                     ' ' .
                     $this->log .
                     ' ' .
-                    self::SEPARATOR .
+                    self::$SEPARATOR .
                     ' ' .
-                    str_replace(self::SEPARATOR, '\\' . self::SEPARATOR, $message) .
+                    str_replace(self::$SEPARATOR, '\\' . self::$SEPARATOR, $message) .
                     ' ' .
-                    self::SEPARATOR .
+                    self::$SEPARATOR .
                     ' ' .
                     $file .
                     ' ' .
-                    self::SEPARATOR .
+                    self::$SEPARATOR .
                     ' ' .
                     $line .
                     PHP_EOL;
