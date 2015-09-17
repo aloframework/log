@@ -40,6 +40,9 @@
   "autoload": {
     "files": [
       "autoload_composer.php"
-    ]
+    ],
+    "psr-4": {
+      "AloFramework\\Log\\": "src/class/"
+    }
   }
 }
