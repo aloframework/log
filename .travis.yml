@@ -13,6 +13,8 @@ before_install:
 
 before_script:
   - phpenv config-add phpunit.cnf.ini
+  - composer self-update
+  - composer update --no-dev -o
 
 script: phpunit --stderr
 
