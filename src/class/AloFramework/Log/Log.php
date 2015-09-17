@@ -85,6 +85,18 @@
         }
 
         /**
+         * Returns a string representation of the class
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        function __toString() {
+            ob_start();
+            d($this);
+
+            return ob_get_clean();
+        }
+
+        /**
          * Gets or sets the log file path
          * @author Art <a.molcanovas@gmail.com>
          *
@@ -102,8 +114,6 @@
                 throw new InvalidArgumentException('The path must be a string');
             } else {
                 $dir = dirname($path);
-
-                var_dump($dir);
 
                 if (!file_exists($dir)) {
                     throw new LogException('The directory does not exist: ' . $dir, LogException::E_INVALID_PATH);
