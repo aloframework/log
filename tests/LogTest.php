@@ -14,7 +14,7 @@
 
         function __construct($name = null, $data = [], $dataName = '') {
             parent::__construct($name, $data, $dataName);
-            $this->log = new Log('PHPUNIT');
+            $this->log = new Log(Log::DEBUG, 'PHPUNIT');
         }
 
         function testLogPermissions() {
