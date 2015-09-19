@@ -17,6 +17,14 @@
             $this->log = new Log(Log::DEBUG, 'PHPUNIT');
         }
 
+        function testDefined() {
+            $def = ['ALO_LOG_LABEL', 'ALO_LOG_SAVE_PATH'];
+
+            foreach ($def as $d) {
+                $this->assertTrue(defined($d), $d . ' wasn\'t defined');
+            }
+        }
+
         function testLogPermissions() {
             $permissions = [Log::DEBUG,
                             Log::INFO,
