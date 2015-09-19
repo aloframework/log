@@ -19,7 +19,7 @@
          * Log identifier
          * @var string
          */
-        protected $log;
+        protected $label;
 
         /**
          * Where the logs are stored
@@ -56,32 +56,16 @@
          * Constructor
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @param string $log      Log label, e.g. if you specify 'System' log entries will be prepended with SYSTEM
          * @param string $logLevel Minimum log level to log. See class constants.
+         * @param string $label    Log label, e.g. if you specify 'System' log entries will be prepended with SYSTEM
          * @param string $savePath The file to save the logs in. If omitted, the logs directory in this package will
          *                         be used with the filenames being today's date in YYYY-mm-dd format.
          *
          * @throws LogException             When a save path is specified, but the directory does not exist
          * @throws InvalidArgumentException When $log isn't scalar or $logLevel is invalid
          */
-        function __construct($log = 'SYSTEM', $logLevel = self::DEBUG, $savePath = null) {
-            if (!$savePath) {
-                $savePath =
-                    __DIR__ .
-                    DIRECTORY_SEPARATOR .
-                    '..' .
-                    DIRECTORY_SEPARATOR .
-                    '..' .
-                    DIRECTORY_SEPARATOR .
-                    '..' .
-                    DIRECTORY_SEPARATOR .
-                    'logs' .
-                    DIRECTORY_SEPARATOR .
-                    date('Y-m-d') .
-                    '.log';
-            }
-
-            $this->logLabel($log)->level($logLevel)->savePath($savePath);
+        function __construct($logLevel = self::DEBUG, $label = ALO_LOG_LABEL, $savePath = ALO_LOG_SAVE_PATH) {
+            $this->logLabel($label)->level($logLevel)->savePath($savePath);
         }
 
         /**
@@ -137,12 +121,12 @@
          */
         function logLabel($set = null) {
             if ($set === null) {
-                return $this->log;
+                return $this->label;
             } elseif (!is_scalar($set)) {
                 throw new InvalidArgumentException('The log label must be scalar. You tried to set (serialised): ' .
                                                    serialize($set));
             } else {
-                $this->log = strtoupper($set);
+                $this->label = strtoupper($set);
             }
 
             return $this;
@@ -227,7 +211,7 @@
                     ' ' .
                     self::$SEPARATOR .
                     ' ' .
-                    $this->log .
+                    $this->label .
                     ' ' .
                     self::$SEPARATOR .
                     ' ' .

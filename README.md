@@ -9,7 +9,7 @@ The logging component, implementing the PSR-3 logging interface.
 Development code quality: [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/small.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe)
 
 Dev: [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=master)](https://travis-ci.org/aloframework/log)
-Release: [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=0.1.2)](https://travis-ci.org/aloframework/log)
+Release: [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=0.1.3)](https://travis-ci.org/aloframework/log)
 
 ## Installation ##
 Installation is available via Composer:
@@ -22,10 +22,19 @@ Installation is available via Composer:
 	
 		use AloFramework\Log\Log;
 		
-		// $logLabel = however you want to identify entries from this specific log, e.g. [SYSTEM]
 		// $logLevel = one of the class' constants, the standard debug to emergency levels. Messages below this level will not be logged.
+		// $logLabel = however you want to identify entries from this specific log, e.g. [SYSTEM]
 		// $pathToLogFile = The path to where the log file will be located
-		$log = new Log($logLabel, $logLevel, $pathToLogFile);
+		$log = new Log($logLevel, $logLabel, $pathToLogFile);
 		
 		$log->notice('My notice message');
 		$log->error('An error message');
+
+## Configuration ##
+
+Default settings can be overwritten by defining the following constants before calling the composer autoload file:
+
+ - **ALO_LOG_LABEL** - the label to use for log entries, defaults to **SYSTEM**.
+	 - Example: `define('ALO_LOG_LABEL', 'MyLog');`
+ - **ALO_LOG_SAVE_PATH** - the default path to the log file, defaults to **vendor/aloframework/log/src/logs/YYYY-mm-dd.log**.
+	 - Example: `define('ALO_LOG_SAVE_PATH', '/var/log/my-app/' . date('Y-m-d') . '.log');`
