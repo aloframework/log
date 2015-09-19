@@ -8,9 +8,10 @@
   "keywords": [
     "PHP",
     "5.4",
-    "framework",
-    "MVC",
-    "lightweight"
+    "log",
+    "logging",
+    "logger",
+    "PSR-3"
   ],
   "authors": [
     {
