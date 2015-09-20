@@ -49,9 +49,7 @@
 
                 $this->assertEquals($permission,
                                     $this->log->level(),
-                                    'Permission set fail: ' .
-                                    $permission .
-                                    ' did not equal the one in the class: ' .
+                                    'Permission set fail: ' . $permission . ' did not equal the one in the class: ' .
                                     $this->log->level());
 
                 foreach ($methods as $methodIndex => $method) {
@@ -62,12 +60,8 @@
                     $expected = $methodIndex >= $permissionIndex;
 
                     $this->assertTrue($logged == $expected,
-                                      'Write permission failed for permission ' .
-                                      $permission .
-                                      ' method ' .
-                                      $method .
-                                      ': method returned ' .
-                                      ($logged ? 'true' : 'false'));
+                                      'Write permission failed for permission ' . $permission . ' method ' . $method .
+                                      ': method returned ' . ($logged ? 'true' : 'false'));
                 }
             }
         }
@@ -102,5 +96,13 @@
          */
         function testInvalidPath() {
             $this->log->savePath('/foo/bar/qux/foo.log');
+        }
+
+        function testValidPath() {
+            $this->assertTrue($this->log->savePath(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'src' .
+                                                   DIRECTORY_SEPARATOR . 'logs' . DIRECTORY_SEPARATOR . 'phpunit.log')
+                              instanceof Log,
+                              'Failed to set
+            valid save path');
         }
     }
