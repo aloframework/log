@@ -26,8 +26,8 @@
    },
    "require": {
       "php": ">=5.4",
-      "raveren/kint": "^1.0.10",
-      "psr/log": "^1.0"
+      "psr/log": "^1.0",
+      "symfony/var-dumper": "^2.7"
    },
    "suggest": {
       "aloframework/aloframework": "The complete stack with all the components"

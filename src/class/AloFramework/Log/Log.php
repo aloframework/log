@@ -2,10 +2,11 @@
 
     namespace AloFramework\Log;
 
-    use Psr\Log\LoggerInterface;
-    use Psr\Log\LogLevel;
-    use Psr\Log\LoggerTrait;
     use Psr\Log\InvalidArgumentException;
+    use Psr\Log\LoggerInterface;
+    use Psr\Log\LoggerTrait;
+    use Psr\Log\LogLevel;
+    use Symfony\Component\VarDumper\VarDumper;
 
     /**
      * AloFramework logger
@@ -75,7 +76,7 @@
          */
         function __toString() {
             ob_start();
-            d($this);
+            VarDumper::dump($this);
 
             return ob_get_clean();
         }
@@ -203,28 +204,28 @@
                                                                                $trace['line']),
                                                                        -2)) : '<<unknown line>>';
                 $message =
-                    $level .
-                    ' ' .
-                    self::$SEPARATOR .
-                    ' ' .
-                    date('Y-m-d H:i:s') .
-                    ' ' .
-                    self::$SEPARATOR .
-                    ' ' .
-                    $this->label .
-                    ' ' .
-                    self::$SEPARATOR .
-                    ' ' .
-                    str_replace(self::$SEPARATOR, '\\' . self::$SEPARATOR, $message) .
-                    ' ' .
-                    self::$SEPARATOR .
-                    ' ' .
-                    $file .
-                    ' ' .
-                    self::$SEPARATOR .
-                    ' ' .
-                    $line .
-                    PHP_EOL;
+                   $level .
+                   ' ' .
+                   self::$SEPARATOR .
+                   ' ' .
+                   date('Y-m-d H:i:s') .
+                   ' ' .
+                   self::$SEPARATOR .
+                   ' ' .
+                   $this->label .
+                   ' ' .
+                   self::$SEPARATOR .
+                   ' ' .
+                   str_replace(self::$SEPARATOR, '\\' . self::$SEPARATOR, $message) .
+                   ' ' .
+                   self::$SEPARATOR .
+                   ' ' .
+                   $file .
+                   ' ' .
+                   self::$SEPARATOR .
+                   ' ' .
+                   $line .
+                   PHP_EOL;
 
                 $ok = [flock($fp, LOCK_EX),
                        fwrite($fp, $message),

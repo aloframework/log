@@ -9,7 +9,7 @@ The logging component, implementing the PSR-3 logging interface.
 
 |                                                                                          dev-master                                                                                         |                                                             Latest release                                                            |
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=master)](https://travis-ci.org/aloframework/log)                                                                     | [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=0.1.1)](https://travis-ci.org/aloframework/log)            |
+| [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=master)](https://travis-ci.org/aloframework/log)                                                                     | [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=0.1.5)](https://travis-ci.org/aloframework/log)            |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/mini.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) |
 
 
