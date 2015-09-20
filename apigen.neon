@@ -33,7 +33,7 @@ deprecated: Yes
 # Generate documentation of tasks
 todo: Yes
 # Generate highlighted source code files
-sourceCode: Yes
+sourceCode: No
 # Add a link to download documentation as a ZIP archive
 download: No
 # Save a checkstyle report of poorly documented elements into a file
