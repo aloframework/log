@@ -15,4 +15,10 @@
          * @var int
          */
         const E_INVALID_PATH = 1;
+
+        /**
+         * Code when the log save path is not writeable
+         * @var int
+         */
+        const E_NOT_WRITEABLE = 2;
     }

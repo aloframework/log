@@ -85,7 +85,7 @@
          * Gets or sets the log file path
          * @author Art <a.molcanovas@gmail.com>
          *
-         * @throws LogException             When the directory doesn't exist
+         * @throws LogException             When the directory doesn't exist or is not writeable
          * @throws InvalidArgumentException When the path isn't a valid string
          *
          * @param string|null $path Omit if using as a getter; The path to the log file otherwise
@@ -102,6 +102,8 @@
 
                 if (!file_exists($dir)) {
                     throw new LogException('The directory does not exist: ' . $dir, LogException::E_INVALID_PATH);
+                } elseif (!is_writeable($dir)) {
+                    throw new LogException('The directory is not writeable: ' . $dir, LogException::E_NOT_WRITEABLE);
                 } else {
                     $this->savePath = $path;
                 }
@@ -203,29 +205,10 @@
                                                            array_slice(explode(DIRECTORY_SEPARATOR,
                                                                                $trace['line']),
                                                                        -2)) : '<<unknown line>>';
-                $message =
-                   $level .
-                   ' ' .
-                   self::$SEPARATOR .
-                   ' ' .
-                   date('Y-m-d H:i:s') .
-                   ' ' .
-                   self::$SEPARATOR .
-                   ' ' .
-                   $this->label .
-                   ' ' .
-                   self::$SEPARATOR .
-                   ' ' .
-                   str_replace(self::$SEPARATOR, '\\' . self::$SEPARATOR, $message) .
-                   ' ' .
-                   self::$SEPARATOR .
-                   ' ' .
-                   $file .
-                   ' ' .
-                   self::$SEPARATOR .
-                   ' ' .
-                   $line .
-                   PHP_EOL;
+                $message = $level . ' ' . self::$SEPARATOR . ' ' . date('Y-m-d H:i:s') . ' ' . self::$SEPARATOR . ' ' .
+                           $this->label . ' ' . self::$SEPARATOR . ' ' .
+                           str_replace(self::$SEPARATOR, '\\' . self::$SEPARATOR, $message) . ' ' . self::$SEPARATOR .
+                           ' ' . $file . ' ' . self::$SEPARATOR . ' ' . $line . PHP_EOL;
 
                 $ok = [flock($fp, LOCK_EX),
                        fwrite($fp, $message),
