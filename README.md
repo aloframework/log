@@ -6,10 +6,12 @@ The logging component, implementing the PSR-3 logging interface.
 [![Latest Stable Version](https://poser.pugx.org/aloframework/log/v/stable?format=plastic)](https://packagist.org/packages/aloframework/log)
 [![Total Downloads](https://poser.pugx.org/aloframework/log/downloads?format=plastic)](https://packagist.org/packages/aloframework/log)
 
-Development code quality: [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/small.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe)
 
-Dev: [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=master)](https://travis-ci.org/aloframework/log)
-Release: [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=0.1.4)](https://travis-ci.org/aloframework/log)
+|                                                                                          dev-master                                                                                         |                                                             Latest release                                                            |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
+| [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=master)](https://travis-ci.org/aloframework/log)                                                                     | [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=0.1.1)](https://travis-ci.org/aloframework/log)            |
+| [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/mini.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) |
+
 
 ## Installation ##
 Installation is available via Composer:
