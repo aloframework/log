@@ -1,5 +1,4 @@
 .idea
 vendor
 composer.lock
-1
 *.log
