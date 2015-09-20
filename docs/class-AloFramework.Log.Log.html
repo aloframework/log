@@ -35,24 +35,6 @@
 						PHP					</a>
 
 						</li>
-				<li>
-					<a href="namespace-Psr.html">
-						Psr<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-Psr.Log.html">
-						Log<span></span>
-					</a>
-
-						<ul>
-				<li>
-					<a href="namespace-Psr.Log.Test.html">
-						Test					</a>
-
-						</li>
-							</ul></li></ul></li>
 			</ul>
 		</div>
 
@@ -127,8 +109,7 @@
 
 	<dl class="tree">
 		<dd style="padding-left:0px">
-			<a href="class-Psr.Log.LogLevel.html"><span>Psr\Log\LogLevel</span></a>
-			
+Psr\Log\LogLevel
 			
 			
 		</dd>
@@ -136,10 +117,11 @@
 			<img src="resources/inherit.png" alt="Extended by">
 <b><span>AloFramework\Log\Log</span></b>			
 			 implements 
-				<a href="class-Psr.Log.LoggerInterface.html"><span>Psr\Log\LoggerInterface</span></a>
+<span>Psr\Log\LoggerInterface</span>
 			
 			 uses 
-					<a href="class-Psr.Log.LoggerTrait.html"><span>Psr\Log\LoggerTrait</span></a>
+					Psr\Log\LoggerTrait (not available)
+
 			
 		</dd>
 	</dl>
@@ -178,7 +160,7 @@
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code>__construct( <span>string <var>$logLevel</var> = <code><a href="class-Psr.Log.LogLevel.html#DEBUG">Psr\Log\LogLevel::<b>DEBUG</b></a></code></span>, <span>string <var>$label</var> = ALO_LOG_LABEL</span>, <span>string <var>$savePath</var> = ALO_LOG_SAVE_PATH</span> )</code>
+		<code>__construct( <span>string <var>$logLevel</var> = self::DEBUG</span>, <span>string <var>$label</var> = ALO_LOG_LABEL</span>, <span>string <var>$savePath</var> = ALO_LOG_SAVE_PATH</span> )</code>
 
 		<div class="description short">
 			<p>Constructor</p>
@@ -203,7 +185,7 @@
 				<h4>Throws</h4>
 				<div class="list">
 					<code><a href="class-AloFramework.Log.LogException.html">AloFramework\Log\LogException</a></code><br>When a save path is specified, but the directory does not exist<br>
-					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>When $log isn't scalar or $logLevel is invalid
+					Psr\Log\InvalidArgumentException<br>When $log isn't scalar or $logLevel is invalid
 				</div>
 
 				<h4>Author</h4>
@@ -289,7 +271,7 @@
 				<h4>Throws</h4>
 				<div class="list">
 					<code><a href="class-AloFramework.Log.LogException.html">AloFramework\Log\LogException</a></code><br>When the directory doesn't exist<br>
-					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>When the path isn't a valid string
+					Psr\Log\InvalidArgumentException<br>When the path isn't a valid string
 				</div>
 
 				<h4>Author</h4>
@@ -336,7 +318,7 @@
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>If attempting to set an invalid log level
+					Psr\Log\InvalidArgumentException<br>If attempting to set an invalid log level
 				</div>
 
 				<h4>Author</h4>
@@ -384,7 +366,7 @@
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>If attempting to set an invalid log level
+					Psr\Log\InvalidArgumentException<br>If attempting to set an invalid log level
 				</div>
 
 				<h4>Author</h4>
@@ -435,13 +417,11 @@
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>When the log level is invalid
+					Psr\Log\InvalidArgumentException<br>When the log level is invalid
 				</div>
 
 
 
-				<h4>Implementation of</h4>
-				<div class="list"><code><a href="class-Psr.Log.LoggerInterface.html#_log">Psr\Log\LoggerInterface::log()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -533,37 +513,6 @@
 	</tr>
 	</table>
 
-	<table class="summary inherited">
-	<caption>Methods inherited from <a href="class-Psr.Log.LoggerInterface.html#methods">Psr\Log\LoggerInterface</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Psr.Log.LoggerInterface.html#_alert">alert()</a>, 
-			<a href="class-Psr.Log.LoggerInterface.html#_critical">critical()</a>, 
-			<a href="class-Psr.Log.LoggerInterface.html#_debug">debug()</a>, 
-			<a href="class-Psr.Log.LoggerInterface.html#_emergency">emergency()</a>, 
-			<a href="class-Psr.Log.LoggerInterface.html#_error">error()</a>, 
-			<a href="class-Psr.Log.LoggerInterface.html#_info">info()</a>, 
-			<a href="class-Psr.Log.LoggerInterface.html#_notice">notice()</a>, 
-			<a href="class-Psr.Log.LoggerInterface.html#_warning">warning()</a>
-		</code></td>
-	</tr>
-	</table>
-
-	<table class="summary used">
-	<caption>Methods used from <a href="class-Psr.Log.LoggerTrait.html#methods">Psr\Log\LoggerTrait</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Psr.Log.LoggerTrait.html#_alert">alert()</a>, 
-			<a href="class-Psr.Log.LoggerTrait.html#_critical">critical()</a>, 
-			<a href="class-Psr.Log.LoggerTrait.html#_debug">debug()</a>, 
-			<a href="class-Psr.Log.LoggerTrait.html#_emergency">emergency()</a>, 
-			<a href="class-Psr.Log.LoggerTrait.html#_error">error()</a>, 
-			<a href="class-Psr.Log.LoggerTrait.html#_info">info()</a>, 
-			<a href="class-Psr.Log.LoggerTrait.html#_notice">notice()</a>, 
-			<a href="class-Psr.Log.LoggerTrait.html#_warning">warning()</a>
-		</code></td>
-	</tr>
-	</table>
 
 
 
@@ -571,21 +520,7 @@
 
 
 
-	<table class="summary inherited">
-	<caption>Constants inherited from <a href="class-Psr.Log.LogLevel.html#constants">Psr\Log\LogLevel</a></caption>
-	<tr>
-		<td><code>
-			<a href="class-Psr.Log.LogLevel.html#ALERT"><b>ALERT</b></a>, 
-			<a href="class-Psr.Log.LogLevel.html#CRITICAL"><b>CRITICAL</b></a>, 
-			<a href="class-Psr.Log.LogLevel.html#DEBUG"><b>DEBUG</b></a>, 
-			<a href="class-Psr.Log.LogLevel.html#EMERGENCY"><b>EMERGENCY</b></a>, 
-			<a href="class-Psr.Log.LogLevel.html#ERROR"><b>ERROR</b></a>, 
-			<a href="class-Psr.Log.LogLevel.html#INFO"><b>INFO</b></a>, 
-			<a href="class-Psr.Log.LogLevel.html#NOTICE"><b>NOTICE</b></a>, 
-			<a href="class-Psr.Log.LogLevel.html#WARNING"><b>WARNING</b></a>
-		</code></td>
-	</tr>
-	</table>
+
 
 
 
