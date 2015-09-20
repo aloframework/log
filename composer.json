@@ -38,7 +38,7 @@
       "src/settings.default.php"
     ],
     "psr-4": {
-      "AloFramework\\Log\\": "src/class/AloFramework/Log"
+      "AloFramework\\Log\\": "src/class/"
     }
   }
 }
