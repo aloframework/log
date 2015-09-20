@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class AloFramework\Log\Log | AloFramework Logger</title>
+
+	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-AloFramework.html">
+						AloFramework<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-AloFramework.Log.html">
+						Log					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-PHP.html">
+						PHP					</a>
+
+						</li>
+				<li>
+					<a href="namespace-Psr.html">
+						Psr<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Psr.Log.html">
+						Log<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-Psr.Log.Test.html">
+						Test					</a>
+
+						</li>
+							</ul></li></ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-AloFramework.Log.Log.html">Log</a></li>
+			</ul>
+
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-AloFramework.Log.LogException.html">LogException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-AloFramework.Log.html" title="Summary of AloFramework\Log"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+				<li>
+					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+						<span>Deprecated</span>
+					</a>
+				</li>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Log</h1>
+
+
+	<div class="description">
+	<p>AloFramework logger</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-Psr.Log.LogLevel.html"><span>Psr\Log\LogLevel</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>AloFramework\Log\Log</span></b>			
+			 implements 
+				<a href="class-Psr.Log.LoggerInterface.html"><span>Psr\Log\LoggerInterface</span></a>
+			
+			 uses 
+					<a href="class-Psr.Log.LoggerTrait.html"><span>Psr\Log\LoggerTrait</span></a>
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Log.html">Log</a><br>
+		
+
+				<b>Author:</b>
+				Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+			<b>Located at</b> class/AloFramework/Log/Log.php		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code>__construct( <span>string <var>$logLevel</var> = <code><a href="class-Psr.Log.LogLevel.html#DEBUG">Psr\Log\LogLevel::<b>DEBUG</b></a></code></span>, <span>string <var>$label</var> = ALO_LOG_LABEL</span>, <span>string <var>$savePath</var> = ALO_LOG_SAVE_PATH</span> )</code>
+
+		<div class="description short">
+			<p>Constructor</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Constructor</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$logLevel</var></dt>
+					<dd>Minimum log level to log. See class constants.</dd>
+					<dt><var>$label</var></dt>
+					<dd>Log label, e.g. if you specify 'System' log entries will be prepended with SYSTEM</dd>
+					<dt><var>$savePath</var></dt>
+					<dd><p>The file to save the logs in. If omitted, the logs directory in this package will
+                        be used with the filenames being today's date in YYYY-mm-dd format.</p></dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-AloFramework.Log.LogException.html">AloFramework\Log\LogException</a></code><br>When a save path is specified, but the directory does not exist<br>
+					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>When $log isn't scalar or $logLevel is invalid
+				</div>
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__toString" id="___toString">
+
+		<td class="attributes"><code>
+			 public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___toString">#</a>
+		<code>__toString( )</code>
+
+		<div class="description short">
+			<p>Returns a string representation of the class</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns a string representation of the class</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="savePath" id="_savePath">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_savePath">#</a>
+		<code>savePath( <span>string|null <var>$path</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Gets or sets the log file path</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets or sets the log file path</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$path</var></dt>
+					<dd>Omit if using as a getter; The path to the log file otherwise</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-AloFramework.Log.LogException.html">AloFramework\Log\LogException</a></code><br>When the directory doesn't exist<br>
+					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>When the path isn't a valid string
+				</div>
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="logLabel" id="_logLabel">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_logLabel">#</a>
+		<code>logLabel( <span>string|null <var>$set</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Gets or sets the log label</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets or sets the log label</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$set</var></dt>
+					<dd>Omit if using as a getter, the new log label if using as a setter.</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>If attempting to set an invalid log level
+				</div>
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="level" id="_level">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_level">#</a>
+		<code>level( <span>string|null <var>$set</var> = <span class="php-keyword1">null</span></span> )</code>
+
+		<div class="description short">
+			<p>Gets or sets the log level</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Gets or sets the log level</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$set</var></dt>
+					<dd><p>Omit if using as a getter, the log level if using as a setter - see class constants
+                        or refer to the PSR-3 standards.</p></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>If attempting to set an invalid log level
+				</div>
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="log" id="_log">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_log">#</a>
+		<code>log( <span>string <var>$level</var></span>, <span>string <var>$message</var></span>, <span>array <var>$context</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Logs with an arbitrary level.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Logs with an arbitrary level.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$level</var></dt>
+					<dd>The message's log level</dd>
+					<dt><var>$message</var></dt>
+					<dd>The message</dd>
+					<dt><var>$context</var></dt>
+					<dd>The message context/placeholder asociative array</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean<br>Whether the message has been written
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-InvalidArgumentException.html">InvalidArgumentException</a></code><br>When the log level is invalid
+				</div>
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-Psr.Log.LoggerInterface.html#_log">Psr\Log\LoggerInterface::log()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="doWrite" id="_doWrite">
+
+		<td class="attributes"><code>
+			 private 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_doWrite">#</a>
+		<code>doWrite( <span>string <var>$level</var></span>, <span>string <var>$message</var></span> )</code>
+
+		<div class="description short">
+			<p>Performs the actual log operation</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Performs the actual log operation</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$level</var></dt>
+					<dd>Log level</dd>
+					<dt><var>$message</var></dt>
+					<dd>Raw message</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="replaceContext" id="_replaceContext">
+
+		<td class="attributes"><code>
+			 protected static
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_replaceContext">#</a>
+		<code>replaceContext( <span>string <var>$message</var></span>, <span>array <var>$context</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Replaces the placeholders in the message</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Replaces the placeholders in the message</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$message</var></dt>
+					<dd>The raw message</dd>
+					<dt><var>$context</var></dt>
+					<dd>The context/placeholder assoc array</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-Psr.Log.LoggerInterface.html#methods">Psr\Log\LoggerInterface</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Psr.Log.LoggerInterface.html#_alert">alert()</a>, 
+			<a href="class-Psr.Log.LoggerInterface.html#_critical">critical()</a>, 
+			<a href="class-Psr.Log.LoggerInterface.html#_debug">debug()</a>, 
+			<a href="class-Psr.Log.LoggerInterface.html#_emergency">emergency()</a>, 
+			<a href="class-Psr.Log.LoggerInterface.html#_error">error()</a>, 
+			<a href="class-Psr.Log.LoggerInterface.html#_info">info()</a>, 
+			<a href="class-Psr.Log.LoggerInterface.html#_notice">notice()</a>, 
+			<a href="class-Psr.Log.LoggerInterface.html#_warning">warning()</a>
+		</code></td>
+	</tr>
+	</table>
+
+	<table class="summary used">
+	<caption>Methods used from <a href="class-Psr.Log.LoggerTrait.html#methods">Psr\Log\LoggerTrait</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Psr.Log.LoggerTrait.html#_alert">alert()</a>, 
+			<a href="class-Psr.Log.LoggerTrait.html#_critical">critical()</a>, 
+			<a href="class-Psr.Log.LoggerTrait.html#_debug">debug()</a>, 
+			<a href="class-Psr.Log.LoggerTrait.html#_emergency">emergency()</a>, 
+			<a href="class-Psr.Log.LoggerTrait.html#_error">error()</a>, 
+			<a href="class-Psr.Log.LoggerTrait.html#_info">info()</a>, 
+			<a href="class-Psr.Log.LoggerTrait.html#_notice">notice()</a>, 
+			<a href="class-Psr.Log.LoggerTrait.html#_warning">warning()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Constants inherited from <a href="class-Psr.Log.LogLevel.html#constants">Psr\Log\LogLevel</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-Psr.Log.LogLevel.html#ALERT"><b>ALERT</b></a>, 
+			<a href="class-Psr.Log.LogLevel.html#CRITICAL"><b>CRITICAL</b></a>, 
+			<a href="class-Psr.Log.LogLevel.html#DEBUG"><b>DEBUG</b></a>, 
+			<a href="class-Psr.Log.LogLevel.html#EMERGENCY"><b>EMERGENCY</b></a>, 
+			<a href="class-Psr.Log.LogLevel.html#ERROR"><b>ERROR</b></a>, 
+			<a href="class-Psr.Log.LogLevel.html#INFO"><b>INFO</b></a>, 
+			<a href="class-Psr.Log.LogLevel.html#NOTICE"><b>NOTICE</b></a>, 
+			<a href="class-Psr.Log.LogLevel.html#WARNING"><b>WARNING</b></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="label" id="$label">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+<var>$label</var>
+			<div class="description short">
+				<p>Log identifier</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Log identifier</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$label" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="savePath" id="$savePath">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+<var>$savePath</var>
+			<div class="description short">
+				<p>Where the logs are stored</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Where the logs are stored</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$savePath" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="level" id="$level">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+<var>$level</var>
+			<div class="description short">
+				<p>Log level set</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Log level set</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$level" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="SEPARATOR" id="$SEPARATOR">
+		<td class="attributes"><code>
+			private static 
+			string
+		</code></td>
+
+		<td class="name">
+<var>$SEPARATOR</var>
+			<div class="description short">
+				<p>Log element separator</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Log element separator</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$SEPARATOR" class="anchor">#</a>
+				<code><span class="php-quote">'|'</span></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="priority" id="$priority">
+		<td class="attributes"><code>
+			private static 
+			array
+		</code></td>
+
+		<td class="name">
+<var>$priority</var>
+			<div class="description short">
+				<p>Log levels and their priorities</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Log levels and their priorities</p>
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$priority" class="anchor">#</a>
+				<code>[self::DEBUG     =&gt; <span class="php-num">1</span>,
+                                self::INFO      =&gt; <span class="php-num">2</span>,
+                                self::NOTICE    =&gt; <span class="php-num">3</span>,
+                                self::WARNING   =&gt; <span class="php-num">4</span>,
+                                self::ERROR     =&gt; <span class="php-num">5</span>,
+                                self::CRITICAL  =&gt; <span class="php-num">6</span>,
+                                self::ALERT     =&gt; <span class="php-num">7</span>,
+                                self::EMERGENCY =&gt; <span class="php-num">8</span>]</code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		AloFramework Logger API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
