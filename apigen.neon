@@ -13,7 +13,7 @@ title: 'AloFramework Logger'
 groups: auto
 
 # Generate documentation for methods and properties with given access level
-accessLevels: [public, protected, private]
+accessLevels: [public, protected]
 # Generate documentation for elements marked as internal and display internal documentation parts
 internal: No
 # Generate documentation for PHP internal classes
