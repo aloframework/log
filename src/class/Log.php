@@ -11,8 +11,10 @@
     require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config.default.php';
 
     /**
-     * AloFramework logger
+     * AloFramework logger.
+     *
      * @author Art <a.molcanovas@gmail.com>
+     *
      * @uses   LoggerTrait
      */
     class Log extends LogLevel implements LoggerInterface {
@@ -20,31 +22,36 @@
         use LoggerTrait;
 
         /**
-         * Log identifier
+         * Log identifier.
+         *
          * @var string
          */
         protected $label;
 
         /**
-         * Where the logs are stored
+         * Where the logs are stored.
+         *
          * @var string
          */
         protected $savePath;
 
         /**
-         * Log level set
+         * Log level set.
+         *
          * @var string
          */
         protected $level;
 
         /**
-         * Log element separator
+         * Log element separator.
+         *
          * @var string
          */
         private static $SEPARATOR = '|';
 
         /**
-         * Log levels and their priorities
+         * Log levels and their priorities.
+         *
          * @var array
          */
         private static $priority = [self::DEBUG     => 1,
@@ -54,10 +61,11 @@
                                     self::ERROR     => 5,
                                     self::CRITICAL  => 6,
                                     self::ALERT     => 7,
-                                    self::EMERGENCY => 8];
+                                    self::EMERGENCY => 8,];
 
         /**
-         * Constructor
+         * Constructor.
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string $logLevel Minimum log level to log. See class constants.
@@ -67,21 +75,25 @@
          *
          * @throws LogException             When a save path is specified, but the directory does not exist
          * @throws InvalidArgumentException When $log isn't scalar or $logLevel is invalid
+         *
          * @uses   Log::logLabel()
          * @uses   Log::level()
          * @uses   Log::savePath()
          */
-        function __construct($logLevel = self::DEBUG, $label = ALO_LOG_LABEL, $savePath = ALO_LOG_SAVE_PATH) {
+        public function __construct($logLevel = self::DEBUG, $label = ALO_LOG_LABEL, $savePath = ALO_LOG_SAVE_PATH) {
             $this->logLabel($label)->level($logLevel)->savePath($savePath);
         }
 
         /**
-         * Returns a string representation of the class
+         * Returns a string representation of the class.
+         *
          * @author Art <a.molcanovas@gmail.com>
+         *
          * @return string
+         *
          * @uses   VarDumper::dump()
          */
-        function __toString() {
+        public function __toString() {
             ob_start();
             VarDumper::dump($this);
 
@@ -89,7 +101,8 @@
         }
 
         /**
-         * Gets or sets the log file path
+         * Gets or sets the log file path.
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @throws LogException             When the directory doesn't exist or is not writeable
@@ -99,7 +112,7 @@
          *
          * @return self|string
          */
-        function savePath($path = null) {
+        public function savePath($path = null) {
             if ($path === null) {
                 return $this->savePath;
             } elseif (!is_string($path)) {
@@ -120,7 +133,8 @@
         }
 
         /**
-         * Gets or sets the log label
+         * Gets or sets the log label.
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string|null $set Omit if using as a getter, the new log label if using as a setter.
@@ -129,7 +143,7 @@
          *
          * @return self|string
          */
-        function logLabel($set = null) {
+        public function logLabel($set = null) {
             if ($set === null) {
                 return $this->label;
             } elseif (!is_scalar($set)) {
@@ -143,7 +157,8 @@
         }
 
         /**
-         * Gets or sets the log level
+         * Gets or sets the log level.
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string|null $set Omit if using as a getter, the log level if using as a setter - see class constants
@@ -153,7 +168,7 @@
          *
          * @return self|string
          */
-        function level($set = null) {
+        public function level($set = null) {
             if ($set === null) {
                 return $this->level;
             } elseif (!array_key_exists($set, self::$priority)) {
@@ -176,10 +191,11 @@
          * @throws InvalidArgumentException When the log level is invalid
          *
          * @return bool Whether the message has been written
+         *
          * @uses Log::doWrite()
          * @uses Log::replaceContect()
          */
-        function log($level, $message, array $context = []) {
+        public function log($level, $message, array $context = []) {
             if (!array_key_exists($level, self::$priority)) {
                 throw new InvalidArgumentException('Invalid log level supplied: ' .
                                                    (is_scalar($level) ? $level : serialize($level) . ' (serialised)'));
@@ -191,7 +207,8 @@
         }
 
         /**
-         * Performs the actual log operation
+         * Performs the actual log operation.
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param string $level   Log level
@@ -222,7 +239,7 @@
                 $ok = [flock($fp, LOCK_EX),
                        fwrite($fp, $message),
                        flock($fp, LOCK_UN),
-                       fclose($fp)];
+                       fclose($fp),];
 
                 return !in_array(false, $ok, true);
             } else {
@@ -233,7 +250,7 @@
         }
 
         /**
-         * Replaces the placeholders in the message
+         * Replaces the placeholders in the message.
          *
          * @param string $message The raw message
          * @param array  $context The context/placeholder assoc array
