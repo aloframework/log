@@ -8,7 +8,7 @@
     use Psr\Log\LogLevel;
     use Symfony\Component\VarDumper\VarDumper;
 
-    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'settings.default.php';
+    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config.default.php';
 
     /**
      * AloFramework logger
