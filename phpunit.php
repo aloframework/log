@@ -1,7 +1,7 @@
 <?php
 
-    $composerJSON = json_decode(file_get_contents('composer.json'), true);
+    $f = __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
-    foreach ($composerJSON['autoload']['files'] as $f) {
+    if (file_exists($f)) {
         include_once $f;
     }

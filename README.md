@@ -6,10 +6,11 @@ A simple, configurable logger implementing the [PSR-3 standards interface](https
 [![Latest Stable Version](https://poser.pugx.org/aloframework/log/v/stable?format=plastic)](https://packagist.org/packages/aloframework/log)
 [![Total Downloads](https://poser.pugx.org/aloframework/log/downloads?format=plastic)](https://packagist.org/packages/aloframework/log)
 
+Latest release API documentation: [https://aloframework.github.io/log/](https://aloframework.github.io/log/)
 
 |                                                                                          dev-develop                                                                                         |                                                             Latest release                                                            |
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=develop)](https://travis-ci.org/aloframework/log)                                                                     | [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=1.0.3)](https://travis-ci.org/aloframework/log)            |
+| [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=develop)](https://travis-ci.org/aloframework/log)                                                                     | [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=1.0.4)](https://travis-ci.org/aloframework/log)            |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/mini.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) |
 
 

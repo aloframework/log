@@ -33,10 +33,6 @@
     "aloframework/aloframework": "The complete stack with all the components"
   },
   "autoload": {
-    "files": [
-      "autoload_composer.php",
-      "src/settings.default.php"
-    ],
     "psr-4": {
       "AloFramework\\Log\\": "src/class/"
     }
