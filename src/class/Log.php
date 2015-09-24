@@ -8,9 +8,12 @@
     use Psr\Log\LogLevel;
     use Symfony\Component\VarDumper\VarDumper;
 
+    require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'settings.default.php';
+
     /**
      * AloFramework logger
      * @author Art <a.molcanovas@gmail.com>
+     * @uses   LoggerTrait
      */
     class Log extends LogLevel implements LoggerInterface {
 
@@ -64,6 +67,9 @@
          *
          * @throws LogException             When a save path is specified, but the directory does not exist
          * @throws InvalidArgumentException When $log isn't scalar or $logLevel is invalid
+         * @uses   Log::logLabel()
+         * @uses   Log::level()
+         * @uses   Log::savePath()
          */
         function __construct($logLevel = self::DEBUG, $label = ALO_LOG_LABEL, $savePath = ALO_LOG_SAVE_PATH) {
             $this->logLabel($label)->level($logLevel)->savePath($savePath);
@@ -73,6 +79,7 @@
          * Returns a string representation of the class
          * @author Art <a.molcanovas@gmail.com>
          * @return string
+         * @uses   VarDumper::dump()
          */
         function __toString() {
             ob_start();
@@ -90,7 +97,7 @@
          *
          * @param string|null $path Omit if using as a getter; The path to the log file otherwise
          *
-         * @return Log|string
+         * @return self|string
          */
         function savePath($path = null) {
             if ($path === null) {
@@ -120,7 +127,7 @@
          *
          * @throws InvalidArgumentException If attempting to set an invalid log level
          *
-         * @return Log|string
+         * @return self|string
          */
         function logLabel($set = null) {
             if ($set === null) {
@@ -144,7 +151,7 @@
          *
          * @throws InvalidArgumentException If attempting to set an invalid log level
          *
-         * @return Log|string
+         * @return self|string
          */
         function level($set = null) {
             if ($set === null) {
@@ -169,6 +176,8 @@
          * @throws InvalidArgumentException When the log level is invalid
          *
          * @return bool Whether the message has been written
+         * @uses Log::doWrite()
+         * @uses Log::replaceContect()
          */
         function log($level, $message, array $context = []) {
             if (!array_key_exists($level, self::$priority)) {
