@@ -1,3 +1,7 @@
+# 1.0.5 #
+
+Removed some doc clutter and var-dumper as a dependency
+
 # 1.0.4 #
 
  - Removed some unnecessary files from composer's autoloader

@@ -10,7 +10,7 @@ Latest release API documentation: [https://aloframework.github.io/log/](https://
 
 |                                                                                          dev-develop                                                                                         |                                                             Latest release                                                            |
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=develop)](https://travis-ci.org/aloframework/log)                                                                     | [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=1.0.4)](https://travis-ci.org/aloframework/log)            |
+| [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=develop)](https://travis-ci.org/aloframework/log)                                                                     | [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=1.0.5)](https://travis-ci.org/aloframework/log)            |
 | [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/mini.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) |
 
 

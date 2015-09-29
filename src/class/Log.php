@@ -6,7 +6,6 @@
     use Psr\Log\LoggerInterface;
     use Psr\Log\LoggerTrait;
     use Psr\Log\LogLevel;
-    use Symfony\Component\VarDumper\VarDumper;
 
     require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'config.default.php';
 
@@ -14,8 +13,6 @@
      * AloFramework logger.
      *
      * @author Art <a.molcanovas@gmail.com>
-     *
-     * @uses   LoggerTrait
      */
     class Log extends LogLevel implements LoggerInterface {
 
@@ -75,10 +72,6 @@
          *
          * @throws LogException             When a save path is specified, but the directory does not exist
          * @throws InvalidArgumentException When $log isn't scalar or $logLevel is invalid
-         *
-         * @uses   Log::logLabel()
-         * @uses   Log::level()
-         * @uses   Log::savePath()
          */
         public function __construct($logLevel = self::DEBUG, $label = ALO_LOG_LABEL, $savePath = ALO_LOG_SAVE_PATH) {
             $this->logLabel($label)->level($logLevel)->savePath($savePath);
@@ -90,14 +83,10 @@
          * @author Art <a.molcanovas@gmail.com>
          *
          * @return string
-         *
-         * @uses   VarDumper::dump()
          */
         public function __toString() {
-            ob_start();
-            VarDumper::dump($this);
-
-            return ob_get_clean();
+            return 'Label: ' . $this->label . ', ' . PHP_EOL . 'Level: ' . $this->level . ', ' . PHP_EOL .
+                   'Save path: ' . $this->level;
         }
 
         /**
@@ -191,9 +180,6 @@
          * @throws InvalidArgumentException When the log level is invalid
          *
          * @return bool Whether the message has been written
-         *
-         * @uses Log::doWrite()
-         * @uses Log::replaceContect()
          */
         public function log($level, $message, array $context = []) {
             if (!array_key_exists($level, self::$priority)) {
