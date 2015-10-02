@@ -1,0 +1,9 @@
+* text=auto
+
+/.git* export-ignore
+/tests export-ignore
+/docs export-ignore
+/.sensiolabs.yml export-ignore
+/.travis.yml export-ignore
+/phpunit* export-ignore
+/CHANGELOG.md export-ignore

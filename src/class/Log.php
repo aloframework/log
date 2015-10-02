@@ -47,6 +47,12 @@
         private static $SEPARATOR = '|';
 
         /**
+         * The previously logged message text
+         * @var string
+         */
+        private $lastMessage;
+
+        /**
          * Log levels and their priorities.
          *
          * @var array
@@ -78,6 +84,15 @@
         }
 
         /**
+         * Returns the last logged message
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        function getLastMessage() {
+            return $this->lastMessage;
+        }
+
+        /**
          * Returns a string representation of the class.
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -86,7 +101,7 @@
          */
         public function __toString() {
             return 'Label: ' . $this->label . ', ' . PHP_EOL . 'Level: ' . $this->level . ', ' . PHP_EOL .
-                   'Save path: ' . $this->level;
+                   'Save path: ' . $this->savePath;
         }
 
         /**
@@ -203,7 +218,8 @@
          * @return bool
          */
         private function doWrite($level, $message) {
-            $fp = fopen($this->savePath, 'ab');
+            $this->lastMessage = $message;
+            $fp                = fopen($this->savePath, 'ab');
 
             if ($fp) {
                 $trace = debug_backtrace();

@@ -1,3 +1,10 @@
+# 1.1 #
+
+ - getLastMessage() added
+ - cleanup
+ - more extensive tests
+ - Bugfix: __toString() path is now returned correctly
+
 # 1.0.5 #
 
 Removed some doc clutter and var-dumper as a dependency
