@@ -44,7 +44,7 @@
          *
          * @var string
          */
-        private static $SEPARATOR = '|';
+        const SEPARATOR = '|';
 
         /**
          * The previously logged message text
@@ -233,10 +233,10 @@
                                                            array_slice(explode(DIRECTORY_SEPARATOR,
                                                                                $trace['line']),
                                                                        -2)) : '<<unknown line>>';
-                $message = $level . ' ' . self::$SEPARATOR . ' ' . date('Y-m-d H:i:s') . ' ' . self::$SEPARATOR . ' ' .
-                           $this->label . ' ' . self::$SEPARATOR . ' ' .
-                           str_replace(self::$SEPARATOR, '\\' . self::$SEPARATOR, $message) . ' ' . self::$SEPARATOR .
-                           ' ' . $file . ' ' . self::$SEPARATOR . ' ' . $line . PHP_EOL;
+                $message = $level . ' ' . self::SEPARATOR . ' ' . $this->time() . ' ' . self::SEPARATOR . ' ' .
+                           $this->label . ' ' . self::SEPARATOR . ' ' .
+                           str_replace(self::SEPARATOR, '\\' . self::SEPARATOR, $message) . ' ' . self::SEPARATOR .
+                           ' ' . $file . ' ' . self::SEPARATOR . ' ' . $line . PHP_EOL;
 
                 $ok = [flock($fp, LOCK_EX),
                        fwrite($fp, $message),
@@ -249,6 +249,15 @@
             }
 
             return false;
+        }
+
+        /**
+         * Returns the current time for log messages. Added as a method so you can overwrite it to the format you want
+         * @author Art <a.molcanovas@gmail.com>
+         * @return string
+         */
+        protected function time() {
+            return date('Y-m-d H:i:s');
         }
 
         /**

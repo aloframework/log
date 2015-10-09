@@ -1,3 +1,8 @@
+# 1.2 #
+
+ - time() added
+ - The separator is now a constant
+
 # 1.1 #
 
  - getLastMessage() added
