@@ -2,6 +2,7 @@
 
     namespace AloFramework\Log;
 
+    use AloFramework\Common\Alo;
     use Psr\Log\InvalidArgumentException;
     use Psr\Log\LoggerInterface;
     use Psr\Log\LoggerTrait;
@@ -51,6 +52,12 @@
          * @var string
          */
         private $lastMessage;
+
+        /**
+         * File name fragments to ignore when generating the backtrace
+         * @var array
+         */
+        protected static $ignoredFiles = ['Log.php'];
 
         /**
          * Log levels and their priorities.
@@ -208,6 +215,30 @@
         }
 
         /**
+         * Returns the debug backtrace
+         * @author Art <a.molcanovas@gmail.com>
+         * @return array
+         */
+        function getBacktrace() {
+            $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+
+            if (empty($trace)) {
+                return [];
+            } else {
+                foreach ($trace as $k => $v) {
+                    foreach (self::$ignoredFiles as $i) {
+                        if (stripos(Alo::ifnull($v['file'], ''), $i) !== false) {
+                            unset($trace[$k]);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return array_values($trace);
+        }
+
+        /**
          * Performs the actual log operation.
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -222,8 +253,7 @@
             $fp                = fopen($this->savePath, 'ab');
 
             if ($fp) {
-                $trace = debug_backtrace();
-                $trace = isset($trace[1]) ? $trace[1] : [];
+                $trace   = Alo::ifnull($this->getBacktrace()[1], [], true);
 
                 $file    = isset($trace['file']) ? implode(DIRECTORY_SEPARATOR,
                                                            array_slice(explode(DIRECTORY_SEPARATOR,
@@ -233,10 +263,10 @@
                                                            array_slice(explode(DIRECTORY_SEPARATOR,
                                                                                $trace['line']),
                                                                        -2)) : '<<unknown line>>';
-                $message = $level . ' ' . self::SEPARATOR . ' ' . $this->time() . ' ' . self::SEPARATOR . ' ' .
-                           $this->label . ' ' . self::SEPARATOR . ' ' .
-                           str_replace(self::SEPARATOR, '\\' . self::SEPARATOR, $message) . ' ' . self::SEPARATOR .
-                           ' ' . $file . ' ' . self::SEPARATOR . ' ' . $line . PHP_EOL;
+                $message =
+                    $level . ' ' . self::SEPARATOR . ' ' . $this->time() . ' ' . self::SEPARATOR . ' ' . $this->label .
+                    ' ' . self::SEPARATOR . ' ' . str_replace(self::SEPARATOR, '\\' . self::SEPARATOR, $message) . ' ' .
+                    self::SEPARATOR . ' ' . $file . ' ' . self::SEPARATOR . ' ' . $line . PHP_EOL;
 
                 $ok = [flock($fp, LOCK_EX),
                        fwrite($fp, $message),

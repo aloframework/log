@@ -1,3 +1,8 @@
+# 1.3 #
+
+ - `getBacktrace()` added
+ - `self::$ignoredFiles` added
+
 # 1.2 #
 
  - time() added

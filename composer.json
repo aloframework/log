@@ -26,10 +26,11 @@
   },
   "require": {
     "php": ">=5.4",
-    "psr/log": "^1.0"
+    "psr/log": "^1.0",
+    "aloframework/common": "^1.0"
   },
-  "suggest": {
-    "aloframework/aloframework": "The complete stack with all the components"
+  "require-dev": {
+    "symfony/var-dumper": "^2.7"
   },
   "autoload": {
     "psr-4": {
