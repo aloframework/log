@@ -219,7 +219,7 @@
          * @author Art <a.molcanovas@gmail.com>
          * @return array
          */
-        function getBacktrace() {
+        protected function getBacktrace() {
             $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
 
             if (empty($trace)) {
@@ -253,7 +253,7 @@
             $fp                = fopen($this->savePath, 'ab');
 
             if ($fp) {
-                $trace   = Alo::ifnull($this->getBacktrace()[1], [], true);
+                $trace = Alo::ifnull($this->getBacktrace()[1], [], true);
 
                 $file    = isset($trace['file']) ? implode(DIRECTORY_SEPARATOR,
                                                            array_slice(explode(DIRECTORY_SEPARATOR,
