@@ -1,3 +1,6 @@
+# 1.4 #
+The message as it would appear in the log is now built in the protected method `buildMessage()`
+
 # 1.3 #
 
  - `getBacktrace()` added
