@@ -14,6 +14,10 @@
     * AloFramework logger.
     *
     * @author Art <a.molcanovas@gmail.com>
+    * @since  1.4 buildMessage() added<br/>
+    *        1.3 getBacktrace(), self::$ignoredFiles added<br/>
+    *        1.2 time() added, the separator is now a constant<br/>
+    *        1.1 getLastMessage() added
     */
    class Log extends LogLevel implements LoggerInterface {
 
@@ -44,6 +48,7 @@
        * Log element separator.
        *
        * @var string
+       * @since 1.2 is a constant, not private static
        */
       const SEPARATOR = '|';
 
@@ -58,6 +63,7 @@
        * File name fragments to ignore when generating the backtrace
        *
        * @var array
+       * @since 1.3
        */
       protected static $ignoredFiles = ['Log.php'];
 
@@ -99,6 +105,7 @@
        *
        * @author Art <a.molcanovas@gmail.com>
        * @return string
+       * @since  1.1
        */
       function getLastMessage() {
          return $this->lastMessage;
@@ -224,6 +231,7 @@
        *
        * @author Art <a.molcanovas@gmail.com>
        * @return array
+       * @since  1.3
        */
       protected function getBacktrace() {
          $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
@@ -282,6 +290,7 @@
        * @param string $text  User-supplied message text
        *
        * @return string The built message
+       * @since  1.4
        */
       protected function buildMessage($level, $text) {
          $trace = Alo::ifnull($this->getBacktrace()[1], [], true);
@@ -305,6 +314,7 @@
        *
        * @author Art <a.molcanovas@gmail.com>
        * @return string
+       * @since  1.2
        */
       protected function time() {
          return date('Y-m-d H:i:s');
