@@ -10,8 +10,8 @@ php:
 before_script:
  - composer self-update
  - phpenv config-add phpunit.cnf.ini
- - composer update --no-dev
- - composer require satooshi/php-coveralls --no-dev
+ - composer update
+ - composer require satooshi/php-coveralls
 
 script:
  - mkdir -p build/logs
