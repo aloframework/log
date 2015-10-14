@@ -3,9 +3,9 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class AloFramework\Log\Log | AloFramework Log 1.4 API</title>
+	<title>Class AloFramework\Log\Log | AloFramework Log 2.0 API</title>
 
-	<link rel="stylesheet" href="resources/style.css?95ada9fb523b6ab4fd1c47bb375f713f2cc65542">
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
 
 </head>
 
@@ -44,6 +44,7 @@
 		<div id="elements">
 			<h3>Classes</h3>
 			<ul>
+				<li><a href="class-AloFramework.Log.Config.html">Config</a></li>
 				<li class="active"><a href="class-AloFramework.Log.Log.html">Log</a></li>
 			</ul>
 
@@ -51,7 +52,7 @@
 
 			<h3>Exceptions</h3>
 			<ul>
-				<li><a href="class-AloFramework.Log.LogException.html">LogException</a></li>
+				<li><a href="class-AloFramework.Log.InvalidArgumentException.html">InvalidArgumentException</a></li>
 			</ul>
 
 
@@ -117,10 +118,15 @@ Psr\Log\LogLevel
 			<img src="resources/inherit.png" alt="Extended by">
 <b><span>AloFramework\Log\Log</span></b>			
 			 implements 
-<span>Psr\Log\LoggerInterface</span>
+<span>Psr\Log\LoggerInterface</span>, 
+			
+<span>AloFramework\Config\Configurable</span>
 			
 			 uses 
 					Psr\Log\LoggerTrait (not available)
+
+			
+					AloFramework\Config\ConfigurableTrait (not available)
 
 			
 		</dd>
@@ -142,10 +148,11 @@ Psr\Log\LogLevel
 				<b>Author:</b>
 				Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
 				<b>Since:</b>
-				<p>1.4 buildMessage() added<br/>
-       1.3 getBacktrace(), self::$ignoredFiles added<br/>
-       1.2 time() added, the separator is now a constant<br/>
-       1.1 getLastMessage() added</p><br>
+				<p>2.0 Is now configured via the Configurable interface<br/>
+        1.4 buildMessage() added<br/>
+        1.3 getBacktrace(), self::$ignoredFiles added<br/>
+        1.2 time() added, the separator is now a constant<br/>
+        1.1 getLastMessage() added</p><br>
 			<b>Located at</b> class/Log.php		<br>
 	</div>
 
@@ -165,7 +172,7 @@ Psr\Log\LogLevel
 
 		<td class="name"><div>
 		<a class="anchor" href="#___construct">#</a>
-		<code>__construct( <span>string <var>$logLevel</var> = self::DEBUG</span>, <span>string <var>$label</var> = ALO_LOG_LABEL</span>, <span>string <var>$savePath</var> = ALO_LOG_SAVE_PATH</span> )</code>
+		<code>__construct( <span><code><a href="class-AloFramework.Log.Config.html">AloFramework\Log\Config</a></code> <var>$cfg</var> = <span class="php-keyword1">null</span></span> )</code>
 
 		<div class="description short">
 			<p>Constructor.</p>
@@ -177,21 +184,53 @@ Psr\Log\LogLevel
 
 				<h4>Parameters</h4>
 				<div class="list"><dl>
-					<dt><var>$logLevel</var></dt>
-					<dd>Minimum log level to log. See class constants.</dd>
-					<dt><var>$label</var></dt>
-					<dd>Log label, e.g. if you specify 'System' log entries will be prepended with SYSTEM</dd>
-					<dt><var>$savePath</var></dt>
-					<dd><p>The file to save the logs in. If omitted, the logs directory in this package will
-                        be used with the filenames being today's date in YYYY-mm-dd format.</p></dd>
+					<dt><var>$cfg</var></dt>
+					<dd>The configuration object</dd>
 				</dl></div>
 
 
 				<h4>Throws</h4>
 				<div class="list">
-					<code><a href="class-AloFramework.Log.LogException.html">AloFramework\Log\LogException</a></code><br>When a save path is specified, but the directory does not exist<br>
-					Psr\Log\InvalidArgumentException<br>When $log isn't scalar or $logLevel is invalid
+					<code><a href="class-AloFramework.Log.InvalidArgumentException.html">AloFramework\Log\InvalidArgumentException</a></code><br>When $log isn't scalar or $logLevel is invalid
 				</div>
+
+				<h4>Author</h4>
+				<div class="list">
+						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getPriority" id="_getPriority">
+
+		<td class="attributes"><code>
+			 public static
+
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getPriority">#</a>
+		<code>getPriority( )</code>
+
+		<div class="description short">
+			<p>Returns the log level priority</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Returns the log level priority</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					array
+				</div>
+
 
 				<h4>Author</h4>
 				<div class="list">
@@ -214,7 +253,7 @@ Psr\Log\LogLevel
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getLastMessage">#</a>
-		<code>getLastMessage( )</code>
+		<code>getLastMessage( <span>boolean <var>$full</var> = <span class="php-keyword1">false</span></span> )</code>
 
 		<div class="description short">
 			<p>Returns the last logged message</p>
@@ -224,6 +263,11 @@ Psr\Log\LogLevel
 			<p>Returns the last logged message</p>
 
 
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$full</var></dt>
+					<dd>If set to true, will return the message as it appears in the log</dd>
+				</dl></div>
 
 				<h4>Returns</h4>
 				<div class="list">
@@ -237,7 +281,8 @@ Psr\Log\LogLevel
 				</div>
 				<h4>Since</h4>
 				<div class="list">
-						1.1<br>
+						<p>2.0 $full added<br/>
+        1.1</p><br>
 				</div>
 
 
@@ -272,149 +317,6 @@ Psr\Log\LogLevel
 					string
 				</div>
 
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="savePath" id="_savePath">
-
-		<td class="attributes"><code>
-			 public 
-
-			<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_savePath">#</a>
-		<code>savePath( <span>string|null <var>$path</var> = <span class="php-keyword1">null</span></span> )</code>
-
-		<div class="description short">
-			<p>Gets or sets the log file path.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Gets or sets the log file path.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$path</var></dt>
-					<dd>Omit if using as a getter; The path to the log file otherwise</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					<code><a href="class-AloFramework.Log.LogException.html">AloFramework\Log\LogException</a></code><br>When the directory doesn't exist or is not writeable<br>
-					Psr\Log\InvalidArgumentException<br>When the path isn't a valid string
-				</div>
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="logLabel" id="_logLabel">
-
-		<td class="attributes"><code>
-			 public 
-
-			<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_logLabel">#</a>
-		<code>logLabel( <span>string|null <var>$set</var> = <span class="php-keyword1">null</span></span> )</code>
-
-		<div class="description short">
-			<p>Gets or sets the log label.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Gets or sets the log label.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$set</var></dt>
-					<dd>Omit if using as a getter, the new log label if using as a setter.</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					Psr\Log\InvalidArgumentException<br>If attempting to set an invalid log level
-				</div>
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="level" id="_level">
-
-		<td class="attributes"><code>
-			 public 
-
-			<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_level">#</a>
-		<code>level( <span>string|null <var>$set</var> = <span class="php-keyword1">null</span></span> )</code>
-
-		<div class="description short">
-			<p>Gets or sets the log level.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Gets or sets the log level.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$set</var></dt>
-					<dd><p>Omit if using as a getter, the log level if using as a setter - see class constants
-                        or refer to the PSR-3 standards.</p></dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					<code><a href="class-AloFramework.Log.Log.html">AloFramework\Log\Log</a></code>|string
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					Psr\Log\InvalidArgumentException<br>If attempting to set an invalid log level
-				</div>
 
 				<h4>Author</h4>
 				<div class="list">
@@ -464,7 +366,7 @@ Psr\Log\LogLevel
 
 				<h4>Throws</h4>
 				<div class="list">
-					Psr\Log\InvalidArgumentException<br>When the log level is invalid
+					<code><a href="class-AloFramework.Log.InvalidArgumentException.html">AloFramework\Log\InvalidArgumentException</a></code><br>When the log level is invalid
 				</div>
 
 
@@ -691,78 +593,6 @@ Psr\Log\LogLevel
 
 	<table class="summary properties" id="properties">
 	<caption>Properties summary</caption>
-	<tr data-order="label" id="$label">
-		<td class="attributes"><code>
-			protected  
-			string
-		</code></td>
-
-		<td class="name">
-<var>$label</var>
-			<div class="description short">
-				<p>Log identifier.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Log identifier.</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$label" class="anchor">#</a>
-				<code></code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="savePath" id="$savePath">
-		<td class="attributes"><code>
-			protected  
-			string
-		</code></td>
-
-		<td class="name">
-<var>$savePath</var>
-			<div class="description short">
-				<p>Where the logs are stored.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Where the logs are stored.</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$savePath" class="anchor">#</a>
-				<code></code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="level" id="$level">
-		<td class="attributes"><code>
-			protected  
-			string
-		</code></td>
-
-		<td class="name">
-<var>$level</var>
-			<div class="description short">
-				<p>Log level set.</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Log level set.</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$level" class="anchor">#</a>
-				<code></code>
-			</div>
-		</td>
-	</tr>
 	<tr data-order="ignoredFiles" id="$ignoredFiles">
 		<td class="attributes"><code>
 			protected static 
@@ -795,13 +625,34 @@ Psr\Log\LogLevel
 
 
 
+	<table class="summary properties" id="magicProperties">
+	<caption>Magic properties summary</caption>
+	<tr data-order="config" id="m$config">
+		<td class="attributes"><code>
+			public  
+			<code><a href="class-AloFramework.Log.Config.html">AloFramework\Log\Config</a></code>
+		</code></td>
+
+		<td class="name">
+<var>$config</var>
+			<div class="description short">
+				<p>Configuration object</p>
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+	</tr>
+	</table>
 
 
 
 </div>
 
 	<div id="footer">
-		AloFramework Log 1.4 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		AloFramework Log 2.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
 </div>
 </div>
