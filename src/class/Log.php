@@ -3,7 +3,6 @@
     namespace AloFramework\Log;
 
     use AloFramework\Common\Alo;
-    use Psr\Log\InvalidArgumentException;
     use Psr\Log\LoggerInterface;
     use Psr\Log\LoggerTrait;
     use Psr\Log\LogLevel;
@@ -132,7 +131,8 @@
         public function log($level, $message, array $context = []) {
             if (!array_key_exists($level, self::$priority)) {
                 throw new InvalidArgumentException('Invalid log level supplied: ' .
-                                                   (is_scalar($level) ? $level : serialize($level) . ' (serialised)'));
+                                                   (is_scalar($level) ? $level : serialize($level) . ' (serialised)'),
+                                                   InvalidArgumentException::E_LEVEL);
             } elseif (self::$priority[$level] < self::$priority[$this->config->logLevel]) {
                 return false;
             } else {
@@ -151,7 +151,9 @@
             $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
 
             if (empty($trace)) {
+                // @codeCoverageIgnoreStart
                 return [];
+                // @codeCoverageIgnoreEnd
             } else {
                 foreach ($trace as $k => $v) {
                     foreach (self::$ignoredFiles as $i) {
@@ -189,11 +191,11 @@
                                           fclose($fp)];
 
                 return !in_array(false, $ok, true);
-            } else {
-                trigger_error('Failed to open log file ' . $this->config->savePath, E_USER_WARNING);
             }
 
+            // @codeCoverageIgnoreStart
             return false;
+            // @codeCoverageIgnoreEnd
         }
 
         /**

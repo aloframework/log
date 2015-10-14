@@ -47,7 +47,12 @@
          */
         function __construct(array $cfg = []) {
             self::setDefaults();
-            parent::__construct(self::$default, $cfg);
+            parent::__construct(self::$default);
+
+            foreach ($cfg as $k => $v) {
+                //Perform all the checks while adding
+                $this->set($k, $v);
+            }
         }
 
         /**

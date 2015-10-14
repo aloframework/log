@@ -5,6 +5,8 @@
     use PHPUnit_Framework_TestCase;
     use AloFramework\Log\Config as Cfg;
     use AloFramework\Log\Log;
+    use AloFramework\Log\InvalidArgumentException;
+    use PHPUnit_Framework_Error;
 
     class Extender extends Log {
 
@@ -54,12 +56,22 @@
             $log  = new Log();
             $log->debug($msg);
 
+            //Get the line above
+            $php  = explode(PHP_EOL, file_get_contents(__FILE__));
+            $line = 57;
+            foreach ($php as $k => $v) {
+                if (stripos($v, '') !== false) {
+                    $line = $k;
+                    break;
+                }
+            }
+
             $this->assertEquals($msg, $log->getLastMessage());
 
             $fullMsg = Log::DEBUG . ' ' . Log::SEPARATOR . ' ' . $time . ' ' . Log::SEPARATOR . ' ' .
                        $log->getConfig(Cfg::LOG_LABEL) . ' ' . Log::SEPARATOR . ' ' .
-                       str_replace(Log::SEPARATOR, '\\' . Log::SEPARATOR, $msg) . ' ' . Log::SEPARATOR . ' ' .
-                       'tests/LogTest.php' . ' ' . Log::SEPARATOR . ' ' . 55 . PHP_EOL;
+                       str_replace(Log::SEPARATOR, '\\' . Log::SEPARATOR, $msg) . ' ' . Log::SEPARATOR . ' ' . 'tests' .
+                       DIRECTORY_SEPARATOR . 'LogTest.php' . ' ' . Log::SEPARATOR . ' ' . $line . PHP_EOL;
 
             $this->assertEquals($fullMsg, $log->getLastMessage(true));
         }
@@ -109,5 +121,19 @@
             $log->debug('foo');
 
             $this->assertEquals(Log::DEBUG . '|foo|' . date('Y'), $log->getLastMessage(true));
+        }
+
+        /**
+         * @expectedException InvalidArgumentException
+         * @expectedExceptionCode    103
+         */
+        function testLogInvalidLevel() {
+            (new Log())->log('foo', 'bar');
+        }
+
+        /** @expectedException PHPUnit_Framework_Error */
+        function testInvalidPath() {
+            (new Log(new Cfg([Cfg::SAVE_PATH => '/tmp/' . mt_rand(~PHP_INT_MAX, PHP_INT_MAX) .
+                                                '/log.log'])))->debug('foo');
         }
     }

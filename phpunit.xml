@@ -18,7 +18,7 @@
     </testsuites>
 
     <filter>
-        <whitelist addUncoveredFilesFromWhitelist="false">
+        <whitelist>
             <directory suffix=".php">src</directory>
 
             <exclude>
@@ -26,4 +26,9 @@
             </exclude>
         </whitelist>
     </filter>
+
+    <logging>
+        <log type="coverage-html" target="coverage"/>
+        <log type="coverage-text" target="php://stdout"/>
+    </logging>
 </phpunit>

@@ -6,7 +6,7 @@
      * Invalid argument exception codes
      * @author Art <a.molcanovas@gmail.com>
      */
-    class InvalidArgumentException extends \InvalidArgumentException {
+    class InvalidArgumentException extends \Psr\Log\InvalidArgumentException {
 
         /**
          * Code for an invalid log save path
