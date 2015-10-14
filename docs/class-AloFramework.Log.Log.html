@@ -3,42 +3,81 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class AloFramework\Log\Log | AloFramework Log 2.0 API</title>
+	<title>Class AloFramework\Log\Log | AloFramework Logger 1.1 API</title>
 
-	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?70c1d062672daa3f906b72e4f5d03d4bc5c4174d">
 
 </head>
 
 <body>
-<div id="left">
-	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">AloFramework Logger 1.1 API</a>
+			</div>
+			<div class="collapse navbar-collapse">
 
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-AloFramework.Log.html" title="Summary of AloFramework\Log"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+					<li>
+						<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+					</li>
+
+						<li>
+							<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+								<span>Deprecated</span>
+							</a>
+						</li>
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
 
 		<div id="groups">
 				<h3>Namespaces</h3>
 			<ul>
-				<li class="active">
-					<a href="namespace-AloFramework.html">
-						AloFramework<span></span>
-					</a>
-
-						<ul>
-				<li class="active">
-					<a href="namespace-AloFramework.Log.html">
-						Log					</a>
-
-						</li>
-							</ul></li>
-				<li>
-					<a href="namespace-PHP.html">
-						PHP					</a>
-
-						</li>
+					<li class="active">
+						<a href="namespace-AloFramework.html">
+							AloFramework<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-AloFramework.Log.html">
+							Log						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-PHP.html">
+							PHP						</a>
+							</li>
 			</ul>
 		</div>
-
-		<hr>
 
 
 		<div id="elements">
@@ -60,43 +99,7 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="">
-		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text" placeholder="Search">
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-AloFramework.Log.html" title="Summary of AloFramework\Log"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-				<li>
-					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
-						<span>Deprecated</span>
-					</a>
-				</li>
-				<li>
-					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
-						<span>Todo</span>
-					</a>
-				</li>
-		</ul>
-		<ul>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Class Log</h1>
 
@@ -105,7 +108,7 @@
 	<p>AloFramework logger.</p>
 	</div>
 
-	<dl class="tree">
+	<dl class="tree well">
 		<dd style="padding-left:0px">
 Psr\Log\LogLevel
 			
@@ -136,7 +139,7 @@ Psr\Log\LogLevel
 
 
 
-	<div class="info">
+	<div class="alert alert-info">
 		
 		
 		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Log.html">Log</a><br>
@@ -155,503 +158,502 @@ Psr\Log\LogLevel
 
 
 
-	<table class="summary methods" id="methods">
-	<caption>Methods summary</caption>
-	<tr data-order="__construct" id="___construct">
-
-		<td class="attributes"><code>
-			 public 
-
-			
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___construct">#</a>
-		<code>__construct( <span><code><a href="class-AloFramework.Log.Config.html">AloFramework\Log\Config</a></code> <var>$cfg</var> = <span class="php-keyword1">null</span></span> )</code>
-
-		<div class="description short">
-			<p>Constructor.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Constructor.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$cfg</var></dt>
-					<dd>The configuration object</dd>
-				</dl></div>
-
-
-				<h4>Throws</h4>
-				<div class="list">
-					<code><a href="class-AloFramework.Log.InvalidArgumentException.html">AloFramework\Log\InvalidArgumentException</a></code><br>When $log isn't scalar or $logLevel is invalid
-				</div>
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getPriority" id="_getPriority">
-
-		<td class="attributes"><code>
-			 public static
-
-			array
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getPriority">#</a>
-		<code>getPriority( )</code>
-
-		<div class="description short">
-			<p>Returns the log level priority</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Returns the log level priority</p>
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					array
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getLastMessage" id="_getLastMessage">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getLastMessage">#</a>
-		<code>getLastMessage( <span>boolean <var>$full</var> = <span class="php-keyword1">false</span></span> )</code>
-
-		<div class="description short">
-			<p>Returns the last logged message</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Returns the last logged message</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$full</var></dt>
-					<dd>If set to true, will return the message as it appears in the log</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-				<h4>Since</h4>
-				<div class="list">
-						<p>2.0 $full added<br/>
-        1.1</p><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="__toString" id="___toString">
-
-		<td class="attributes"><code>
-			 public 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#___toString">#</a>
-		<code>__toString( )</code>
-
-		<div class="description short">
-			<p>Returns a string representation of the class.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Returns a string representation of the class.</p>
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="log" id="_log">
-
-		<td class="attributes"><code>
-			 public 
-
-			boolean
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_log">#</a>
-		<code>log( <span>string <var>$level</var></span>, <span>string <var>$message</var></span>, <span>array <var>$context</var> = []</span> )</code>
-
-		<div class="description short">
-			<p>Logs with an arbitrary level.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Logs with an arbitrary level.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$level</var></dt>
-					<dd>The message's log level</dd>
-					<dt><var>$message</var></dt>
-					<dd>The message</dd>
-					<dt><var>$context</var></dt>
-					<dd>The message context/placeholder asociative array</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					boolean<br>Whether the message has been written
-				</div>
-
-				<h4>Throws</h4>
-				<div class="list">
-					<code><a href="class-AloFramework.Log.InvalidArgumentException.html">AloFramework\Log\InvalidArgumentException</a></code><br>When the log level is invalid
-				</div>
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="getBacktrace" id="_getBacktrace">
-
-		<td class="attributes"><code>
-			 protected 
-
-			array
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_getBacktrace">#</a>
-		<code>getBacktrace( )</code>
-
-		<div class="description short">
-			<p>Returns the debug backtrace</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Returns the debug backtrace</p>
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					array
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-				<h4>Since</h4>
-				<div class="list">
-						1.3<br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="buildMessage" id="_buildMessage">
-
-		<td class="attributes"><code>
-			 protected 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_buildMessage">#</a>
-		<code>buildMessage( <span>string <var>$level</var></span>, <span>string <var>$text</var></span> )</code>
-
-		<div class="description short">
-			<p>Builds the message as it will appear in the log file</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Builds the message as it will appear in the log file</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$level</var></dt>
-					<dd>Message level</dd>
-					<dt><var>$text</var></dt>
-					<dd>User-supplied message text</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string<br>The built message
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-				<h4>Since</h4>
-				<div class="list">
-						1.4<br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="time" id="_time">
-
-		<td class="attributes"><code>
-			 protected 
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_time">#</a>
-		<code>time( )</code>
-
-		<div class="description short">
-			<p>Returns the current time for log messages. Added as a method so you can overwrite it to the format you want</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Returns the current time for log messages. Added as a method so you can overwrite it to the format you want</p>
-
-
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-				<h4>Author</h4>
-				<div class="list">
-						Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
-				</div>
-				<h4>Since</h4>
-				<div class="list">
-						1.2<br>
-				</div>
-
-
-		</div>
-		</div></td>
-	</tr>
-	<tr data-order="replaceContext" id="_replaceContext">
-
-		<td class="attributes"><code>
-			 protected static
-
-			string
-			
-			</code>
-		</td>
-
-		<td class="name"><div>
-		<a class="anchor" href="#_replaceContext">#</a>
-		<code>replaceContext( <span>string <var>$message</var></span>, <span>array <var>$context</var> = []</span> )</code>
-
-		<div class="description short">
-			<p>Replaces the placeholders in the message.</p>
-		</div>
-
-		<div class="description detailed hidden">
-			<p>Replaces the placeholders in the message.</p>
-
-
-				<h4>Parameters</h4>
-				<div class="list"><dl>
-					<dt><var>$message</var></dt>
-					<dd>The raw message</dd>
-					<dt><var>$context</var></dt>
-					<dd>The context/placeholder assoc array</dd>
-				</dl></div>
-
-				<h4>Returns</h4>
-				<div class="list">
-					string
-				</div>
-
-
-
-
-		</div>
-		</div></td>
-	</tr>
-	</table>
-
-
-
-
-
-
-
-
-	<table class="summary constants" id="constants">
-	<caption>Constants summary</caption>
-	<tr data-order="SEPARATOR" id="SEPARATOR">
-
-		<td class="attributes"><code>string</code></td>
-		<td class="name">
-			<code>
-<b>SEPARATOR</b>			</code>
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Methods summary</h2></div>
+			<table class="summary table table-bordered table-striped methods" id="methods">
+		<tr data-order="__construct" id="___construct">
+
+			<td class="attributes"><code>
+				 public 
+				
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#___construct">#</a>
+			<code>__construct( <span><code><a href="class-AloFramework.Log.Config.html">AloFramework\Log\Config</a></code> <var>$cfg</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
-				<p>Log element separator.</p>
+				<p>Constructor.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Log element separator.</p>
+				<p>Constructor.</p>
 
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$cfg</var></dt>
+						<dd>The configuration object</dd>
+					</dl></div>
+
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><a href="class-AloFramework.Log.InvalidArgumentException.html">AloFramework\Log\InvalidArgumentException</a></code><br>When $log isn't scalar or $logLevel is invalid
+					</div>
+
+					<h4>Author</h4>
+					<div class="list">
+							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getPriority" id="_getPriority">
+
+			<td class="attributes"><code>
+				 public static
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getPriority">#</a>
+			<code>getPriority( )</code>
+
+			<div class="description short">
+				<p>Returns the log level priority</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns the log level priority</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getLastMessage" id="_getLastMessage">
+
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getLastMessage">#</a>
+			<code>getLastMessage( <span>boolean <var>$full</var> = <span class="php-keyword1">false</span></span> )</code>
+
+			<div class="description short">
+				<p>Returns the last logged message</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns the last logged message</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$full</var></dt>
+						<dd>If set to true, will return the message as it appears in the log</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+					</div>
 					<h4>Since</h4>
 					<div class="list">
-							1.2 is a constant, not private static<br>
+							<p>2.0 $full added<br/>
+        1.1</p><br>
 					</div>
+
+
 			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#SEPARATOR" class="anchor">#</a>
-				<code><span class="php-quote">'|'</span></code>
-			</div>
-		</td>
-	</tr>
-	</table>
+			</div></td>
+		</tr>
+		<tr data-order="__toString" id="___toString">
 
+			<td class="attributes"><code>
+				 public 
+				string
+				
+				</code>
+			</td>
 
+			<td class="name"><div>
+			<a class="anchor" href="#___toString">#</a>
+			<code>__toString( )</code>
 
-
-	<table class="summary properties" id="properties">
-	<caption>Properties summary</caption>
-	<tr data-order="ignoredFiles" id="$ignoredFiles">
-		<td class="attributes"><code>
-			protected static 
-			array
-		</code></td>
-
-		<td class="name">
-<var>$ignoredFiles</var>
 			<div class="description short">
-				<p>File name fragments to ignore when generating the backtrace</p>
+				<p>Returns a string representation of the class.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>File name fragments to ignore when generating the backtrace</p>
+				<p>Returns a string representation of the class.</p>
 
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="log" id="_log">
+
+			<td class="attributes"><code>
+				 public 
+				boolean
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_log">#</a>
+			<code>log( <span>string <var>$level</var></span>, <span>string <var>$message</var></span>, <span>array <var>$context</var> = []</span> )</code>
+
+			<div class="description short">
+				<p>Logs with an arbitrary level.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Logs with an arbitrary level.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$level</var></dt>
+						<dd>The message's log level</dd>
+						<dt><var>$message</var></dt>
+						<dd>The message</dd>
+						<dt><var>$context</var></dt>
+						<dd>The message context/placeholder asociative array</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						boolean<br>Whether the message has been written
+					</div>
+
+					<h4>Throws</h4>
+					<div class="list">
+						<code><a href="class-AloFramework.Log.InvalidArgumentException.html">AloFramework\Log\InvalidArgumentException</a></code><br>When the log level is invalid
+					</div>
+
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="getBacktrace" id="_getBacktrace">
+
+			<td class="attributes"><code>
+				 protected 
+				array
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_getBacktrace">#</a>
+			<code>getBacktrace( )</code>
+
+			<div class="description short">
+				<p>Returns the debug backtrace</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns the debug backtrace</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						array
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+					</div>
 					<h4>Since</h4>
 					<div class="list">
 							1.3<br>
 					</div>
+
+
 			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#$ignoredFiles" class="anchor">#</a>
-				<code>[<span class="php-quote">'Log.php'</span>]</code>
-			</div>
-		</td>
-	</tr>
-	</table>
+			</div></td>
+		</tr>
+		<tr data-order="buildMessage" id="_buildMessage">
 
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
 
+			<td class="name"><div>
+			<a class="anchor" href="#_buildMessage">#</a>
+			<code>buildMessage( <span>string <var>$level</var></span>, <span>string <var>$text</var></span> )</code>
 
-	<table class="summary properties" id="magicProperties">
-	<caption>Magic properties summary</caption>
-	<tr data-order="config" id="m$config">
-		<td class="attributes"><code>
-			public  
-			<code><a href="class-AloFramework.Log.Config.html">AloFramework\Log\Config</a></code>
-		</code></td>
-
-		<td class="name">
-<var>$config</var>
 			<div class="description short">
-				<p>Configuration object</p>
+				<p>Builds the message as it will appear in the log file</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Builds the message as it will appear in the log file</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$level</var></dt>
+						<dd>Message level</dd>
+						<dt><var>$text</var></dt>
+						<dd>User-supplied message text</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						string<br>The built message
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+					</div>
+					<h4>Since</h4>
+					<div class="list">
+							1.4<br>
+					</div>
+
 
 			</div>
-		</td>
-	</tr>
-	</table>
+			</div></td>
+		</tr>
+		<tr data-order="time" id="_time">
+
+			<td class="attributes"><code>
+				 protected 
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_time">#</a>
+			<code>time( )</code>
+
+			<div class="description short">
+				<p>Returns the current time for log messages. Added as a method so you can overwrite it to the format you want</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Returns the current time for log messages. Added as a method so you can overwrite it to the format you want</p>
+
+
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+					<h4>Author</h4>
+					<div class="list">
+							Art <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#x61;&#x2e;&#x6d;&#x6f;&#x6c;&#x63;&#x61;&#x6e;&#x6f;&#x76;&#x61;&#x73;&#x40;&#x67;&#x6d;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a><br>
+					</div>
+					<h4>Since</h4>
+					<div class="list">
+							1.2<br>
+					</div>
+
+
+			</div>
+			</div></td>
+		</tr>
+		<tr data-order="replaceContext" id="_replaceContext">
+
+			<td class="attributes"><code>
+				 protected static
+				string
+				
+				</code>
+			</td>
+
+			<td class="name"><div>
+			<a class="anchor" href="#_replaceContext">#</a>
+			<code>replaceContext( <span>string <var>$message</var></span>, <span>array <var>$context</var> = []</span> )</code>
+
+			<div class="description short">
+				<p>Replaces the placeholders in the message.</p>
+			</div>
+
+			<div class="description detailed hidden">
+				<p>Replaces the placeholders in the message.</p>
+
+
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$message</var></dt>
+						<dd>The raw message</dd>
+						<dt><var>$context</var></dt>
+						<dd>The context/placeholder assoc array</dd>
+					</dl></div>
+
+					<h4>Returns</h4>
+					<div class="list">
+						string
+					</div>
+
+
+
+
+			</div>
+			</div></td>
+		</tr>
+			</table>
+		</div>
+
+
+
+
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Constants summary</h2></div>
+			<table class="summary table table-bordered table-striped constants" id="constants">
+			<tr data-order="SEPARATOR" id="SEPARATOR">
+
+				<td class="attributes"><code>string</code></td>
+				<td class="name">
+					<code>
+<b>SEPARATOR</b>					</code>
+
+					<div class="description short">
+						<p>Log element separator.</p>
+					</div>
+
+					<div class="description detailed hidden">
+						<p>Log element separator.</p>
+
+							<h4>Since</h4>
+							<div class="list">
+									1.2 is a constant, not private static<br>
+							</div>
+					</div>
+				</td>
+				<td class="value">
+					<div>
+						<a href="#SEPARATOR" class="anchor">#</a>
+						<code><span class="php-quote">'|'</span></code>
+					</div>
+				</td>
+			</tr>
+			</table>
+		</div>
+
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Properties summary</h2></div>
+			<table class="summary table table-bordered table-striped properties" id="properties">
+		<tr data-order="ignoredFiles" id="$ignoredFiles">
+			<td class="attributes"><code>
+				protected static 
+				array
+			</code></td>
+
+			<td class="name">
+<var>$ignoredFiles</var>
+				<div class="description short">
+					<p>File name fragments to ignore when generating the backtrace</p>
+				</div>
+
+				<div class="description detailed hidden">
+					<p>File name fragments to ignore when generating the backtrace</p>
+
+						<h4>Since</h4>
+						<div class="list">
+								1.3<br>
+						</div>
+				</div>
+			</td>
+			<td class="value">
+				<div>
+					<a href="#$ignoredFiles" class="anchor">#</a>
+					<code>[<span class="php-quote">'Log.php'</span>]</code>
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
+
+
+
+		<div class="panel panel-default">
+            <div class="panel-heading"><h3>Magic properties</h3></div>
+			<table class="summary table table-bordered table-striped properties" id="magicProperties">
+		<tr data-order="config" id="m$config">
+			<td class="attributes"><code>
+				public  
+				<code><a href="class-AloFramework.Log.Config.html">AloFramework\Log\Config</a></code>
+			</code></td>
+
+			<td class="name">
+<var>$config</var>
+				<div class="description short">
+					<p>Configuration object</p>
+				</div>
+
+				<div class="description detailed hidden">
+					
+
+				</div>
+			</td>
+		</tr>
+			</table>
+		</div>
 
 
 
 </div>
+	</div>
 
 	<div id="footer">
-		AloFramework Log 2.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		AloFramework Logger 1.1 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
-</div>
 </div>
 <script src="resources/combined.js"></script>
 <script src="elementlist.js"></script>

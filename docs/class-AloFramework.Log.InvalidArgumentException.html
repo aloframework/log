@@ -3,42 +3,81 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>Class AloFramework\Log\InvalidArgumentException | AloFramework Log 2.0 API</title>
+	<title>Class AloFramework\Log\InvalidArgumentException | AloFramework Logger 1.1 API</title>
 
-	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+	<link rel="stylesheet" href="resources/bootstrap.min.css?973e37a8502921d56bc02bb55321f45b072b6f71">
+	<link rel="stylesheet" href="resources/style.css?70c1d062672daa3f906b72e4f5d03d4bc5c4174d">
 
 </head>
 
 <body>
-<div id="left">
-	<div id="menu">
-		<a href="index.html" title="Overview"><span>Overview</span></a>
+	<nav id="navigation" class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand">AloFramework Logger 1.1 API</a>
+			</div>
+			<div class="collapse navbar-collapse">
 
+                <form id="search" class="navbar-form navbar-left" role="search">
+                    <input type="hidden" name="cx" value="">
+                    <input type="hidden" name="ie" value="UTF-8">
+                    <div class="form-group">
+                        <input type="text" name="q" class="search-query form-control" placeholder="Search">
+					</div>
+				</form>
+
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="namespace-AloFramework.Log.html" title="Summary of AloFramework\Log"><span>Namespace</span></a>
+					</li>
+					<li class="active">
+<span>Class</span>					</li>
+
+					<li class="divider-vertical"></li>
+
+					<li>
+						<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+					</li>
+
+						<li>
+							<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
+								<span>Deprecated</span>
+							</a>
+						</li>
+						<li>
+							<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+								<span>Todo</span>
+							</a>
+						</li>
+
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div id="left">
+	<div id="menu">
 
 		<div id="groups">
 				<h3>Namespaces</h3>
 			<ul>
-				<li class="active">
-					<a href="namespace-AloFramework.html">
-						AloFramework<span></span>
-					</a>
-
-						<ul>
-				<li class="active">
-					<a href="namespace-AloFramework.Log.html">
-						Log					</a>
-
-						</li>
-							</ul></li>
-				<li>
-					<a href="namespace-PHP.html">
-						PHP					</a>
-
-						</li>
+					<li class="active">
+						<a href="namespace-AloFramework.html">
+							AloFramework<span></span>
+						</a>
+							<ul>
+					<li class="active">
+						<a href="namespace-AloFramework.Log.html">
+							Log						</a>
+							</li>
+								</ul></li>
+					<li>
+						<a href="namespace-PHP.html">
+							PHP						</a>
+							</li>
 			</ul>
 		</div>
-
-		<hr>
 
 
 		<div id="elements">
@@ -60,43 +99,7 @@
 <div id="splitter"></div>
 
 <div id="right">
-<div id="rightInner">
-	<form id="search">
-		<input type="hidden" name="cx" value="">
-		<input type="hidden" name="ie" value="UTF-8">
-		<input type="text" name="q" class="text" placeholder="Search">
-	</form>
-
-	<div id="navigation">
-		<ul>
-			<li>
-				<a href="index.html" title="Overview"><span>Overview</span></a>
-			</li>
-			<li>
-				<a href="namespace-AloFramework.Log.html" title="Summary of AloFramework\Log"><span>Namespace</span></a>
-			</li>
-			<li class="active">
-<span>Class</span>			</li>
-		</ul>
-		<ul>
-			<li>
-				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
-			</li>
-				<li>
-					<a href="annotation-group-deprecated.html" title="List of elements with deprecated annotation">
-						<span>Deprecated</span>
-					</a>
-				</li>
-				<li>
-					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
-						<span>Todo</span>
-					</a>
-				</li>
-		</ul>
-		<ul>
-		</ul>
-	</div>
-
+	<div id="rightInner">
 <div id="content" class="class">
 	<h1>Class InvalidArgumentException</h1>
 
@@ -105,7 +108,7 @@
 	<p>Invalid argument exception codes</p>
 	</div>
 
-	<dl class="tree">
+	<dl class="tree well">
 		<dd style="padding-left:0px">
 Psr\Log\InvalidArgumentException
 			
@@ -126,7 +129,7 @@ Psr\Log\InvalidArgumentException
 
 
 
-	<div class="info">
+	<div class="alert alert-info">
 		
 		
 		<b>Namespace:</b> <a href="namespace-AloFramework.html">AloFramework</a>\<a href="namespace-AloFramework.Log.html">Log</a><br>
@@ -141,100 +144,90 @@ Psr\Log\InvalidArgumentException
 
 
 
+		<div class="panel panel-default">
+            <div class="panel-heading"><h2>Constants summary</h2></div>
+			<table class="summary table table-bordered table-striped constants" id="constants">
+			<tr data-order="E_PATH" id="E_PATH">
 
+				<td class="attributes"><code>integer</code></td>
+				<td class="name">
+					<code>
+<b>E_PATH</b>					</code>
 
+					<div class="description short">
+						<p>Code for an invalid log save path</p>
+					</div>
 
+					<div class="description detailed hidden">
+						<p>Code for an invalid log save path</p>
 
+					</div>
+				</td>
+				<td class="value">
+					<div>
+						<a href="#E_PATH" class="anchor">#</a>
+						<code><span class="php-num">101</span></code>
+					</div>
+				</td>
+			</tr>
+			<tr data-order="E_LABEL" id="E_LABEL">
 
+				<td class="attributes"><code>integer</code></td>
+				<td class="name">
+					<code>
+<b>E_LABEL</b>					</code>
 
-	<table class="summary constants" id="constants">
-	<caption>Constants summary</caption>
-	<tr data-order="E_PATH" id="E_PATH">
+					<div class="description short">
+						<p>Code for an invalid log label</p>
+					</div>
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name">
-			<code>
-<b>E_PATH</b>			</code>
+					<div class="description detailed hidden">
+						<p>Code for an invalid log label</p>
 
-			<div class="description short">
-				<p>Code for an invalid log save path</p>
-			</div>
+					</div>
+				</td>
+				<td class="value">
+					<div>
+						<a href="#E_LABEL" class="anchor">#</a>
+						<code><span class="php-num">102</span></code>
+					</div>
+				</td>
+			</tr>
+			<tr data-order="E_LEVEL" id="E_LEVEL">
 
-			<div class="description detailed hidden">
-				<p>Code for an invalid log save path</p>
+				<td class="attributes"><code>integer</code></td>
+				<td class="name">
+					<code>
+<b>E_LEVEL</b>					</code>
 
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#E_PATH" class="anchor">#</a>
-				<code><span class="php-num">101</span></code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="E_LABEL" id="E_LABEL">
+					<div class="description short">
+						<p>Code for an invalid log level</p>
+					</div>
 
-		<td class="attributes"><code>integer</code></td>
-		<td class="name">
-			<code>
-<b>E_LABEL</b>			</code>
+					<div class="description detailed hidden">
+						<p>Code for an invalid log level</p>
 
-			<div class="description short">
-				<p>Code for an invalid log label</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Code for an invalid log label</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#E_LABEL" class="anchor">#</a>
-				<code><span class="php-num">102</span></code>
-			</div>
-		</td>
-	</tr>
-	<tr data-order="E_LEVEL" id="E_LEVEL">
-
-		<td class="attributes"><code>integer</code></td>
-		<td class="name">
-			<code>
-<b>E_LEVEL</b>			</code>
-
-			<div class="description short">
-				<p>Code for an invalid log level</p>
-			</div>
-
-			<div class="description detailed hidden">
-				<p>Code for an invalid log level</p>
-
-			</div>
-		</td>
-		<td class="value">
-			<div>
-				<a href="#E_LEVEL" class="anchor">#</a>
-				<code><span class="php-num">103</span></code>
-			</div>
-		</td>
-	</tr>
-	</table>
-
-
-
-
-
-
+					</div>
+				</td>
+				<td class="value">
+					<div>
+						<a href="#E_LEVEL" class="anchor">#</a>
+						<code><span class="php-num">103</span></code>
+					</div>
+				</td>
+			</tr>
+			</table>
+		</div>
 
 
 
 
 </div>
+	</div>
 
 	<div id="footer">
-		AloFramework Log 2.0 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
+		AloFramework Logger 1.1 API API documentation generated by <a href="http://apigen.org">ApiGen</a>
 	</div>
-</div>
 </div>
 <script src="resources/combined.js"></script>
 <script src="elementlist.js"></script>
