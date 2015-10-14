@@ -130,10 +130,4 @@
         function testLogInvalidLevel() {
             (new Log())->log('foo', 'bar');
         }
-
-        /** @expectedException PHPUnit_Framework_Error */
-        function testInvalidPath() {
-            (new Log(new Cfg([Cfg::SAVE_PATH => '/tmp/' . mt_rand(~PHP_INT_MAX, PHP_INT_MAX) .
-                                                '/log.log'])))->debug('foo');
-        }
     }
