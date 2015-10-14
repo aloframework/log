@@ -1,45 +1,46 @@
 {
-   "name": "aloframework/log",
-   "description": "The logger of AloFramework",
-   "prefer-stable": true,
-   "type": "library",
-   "license": "GPL-3.0+",
-   "homepage": "https://github.com/aloframework/log",
-   "keywords": [
-      "PHP",
-      "5.4",
-      "log",
-      "logging",
-      "logger",
-      "PSR-3"
-   ],
-   "authors": [
-      {
-         "name": "Art",
-         "email": "a.molcanovas@gmail.com",
-         "role": "Developer",
-         "homepage": "https://github.com/Alorel"
-      }
-   ],
-   "support": {
-      "issues": "https://github.com/aloframework/log/issues"
-   },
-   "require": {
-      "php": ">=5.4",
-      "psr/log": "^1.0",
-      "aloframework/common": "^1.0"
-   },
-   "require-dev": {
-      "symfony/var-dumper": "^2.7"
-   },
-   "autoload": {
-      "psr-4": {
-         "AloFramework\\Log\\": "src/class/"
-      }
-   },
-   "extra": {
-      "branch-alias": {
-         "dev-master": "1.x-dev"
-      }
-   }
+  "name": "aloframework/log",
+  "description": "The logger of AloFramework",
+  "prefer-stable": true,
+  "type": "library",
+  "license": "GPL-3.0+",
+  "homepage": "https://github.com/aloframework/log",
+  "keywords": [
+    "PHP",
+    "5.4",
+    "log",
+    "logging",
+    "logger",
+    "PSR-3"
+  ],
+  "authors": [
+    {
+      "name": "Art",
+      "email": "a.molcanovas@gmail.com",
+      "role": "Developer",
+      "homepage": "https://github.com/Alorel"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/aloframework/log/issues"
+  },
+  "require": {
+    "php": ">=5.4",
+    "psr/log": "^1.0",
+    "aloframework/common": "^1.0",
+    "aloframework/config": "^1.0.1"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^2.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "AloFramework\\Log\\": "src/class/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
+    }
+  }
 }

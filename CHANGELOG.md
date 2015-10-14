@@ -1,3 +1,9 @@
+# 2.0 #
+
+ - Configuration is now made via the Configurable interface. This means that the Log constructor signature has now 
+ changed.
+ - The default log level is now set in the Config class
+
 # 1.4 #
 The message as it would appear in the log is now built in the protected method `buildMessage()`
 
