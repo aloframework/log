@@ -8,3 +8,4 @@
 /phpunit* export-ignore
 /CHANGELOG.md export-ignore
 /coverage export-ignore
+/apigen.neon export-ignore
