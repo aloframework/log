@@ -50,6 +50,12 @@
         protected static $ignoredFiles = ['Log.php'];
 
         /**
+         * The last message including any formatting/extra params
+         * @var string
+         */
+        private $lastMessageFull;
+
+        /**
          * Log levels and their priorities.
          *
          * @var array
@@ -61,7 +67,7 @@
                                     self::ERROR     => 5,
                                     self::CRITICAL  => 6,
                                     self::ALERT     => 7,
-                                    self::EMERGENCY => 8,];
+                                    self::EMERGENCY => 8];
 
         /**
          * Constructor.
@@ -89,11 +95,15 @@
          * Returns the last logged message
          *
          * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param bool $full If set to true, will return the message as it appears in the log
+         *
          * @return string
-         * @since  1.1
+         * @since  2.0 $full added<br/>
+         *         1.1
          */
-        function getLastMessage() {
-            return $this->lastMessage;
+        function getLastMessage($full = false) {
+            return $full ? $this->lastMessageFull : $this->lastMessage;
         }
 
         /**
@@ -171,11 +181,12 @@
             $fp                = fopen($this->config->savePath, 'ab');
 
             if ($fp) {
-                $message = $this->buildMessage($level, $message);
-                $ok      = [flock($fp, LOCK_EX),
-                            fwrite($fp, $message),
-                            flock($fp, LOCK_UN),
-                            fclose($fp)];
+                $message               = $this->buildMessage($level, $message);
+                $this->lastMessageFull = $message;
+                $ok                    = [flock($fp, LOCK_EX),
+                                          fwrite($fp, $message),
+                                          flock($fp, LOCK_UN),
+                                          fclose($fp)];
 
                 return !in_array(false, $ok, true);
             } else {

@@ -37,7 +37,7 @@
          * The default logging level
          * @author Art <a.molcanovas@gmail.com>
          */
-        const DEFAULT_LEVEL = 'logLevel';
+        const LOG_LEVEL = 'logLevel';
 
         /**
          * Constructor
@@ -66,7 +66,7 @@
                     $ok = $this->checkLogLabel($v);
                     $e  = InvalidArgumentException::E_LABEL;
                     break;
-                case self::DEFAULT_LEVEL:
+                case self::LOG_LEVEL:
                     $ok = $this->checkLogLevel($v);
                     $e  = InvalidArgumentException::E_LEVEL;
                     break;
@@ -136,10 +136,10 @@
          */
         private static function setDefaults() {
             if (!self::$default) {
-                self::$default = [self::LOG_LABEL     => 'SYSTEM',
-                                  self::DEFAULT_LEVEL => LogLevel::DEBUG,
-                                  self::SAVE_PATH     => __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .
-                                                         'logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '.log'];
+                self::$default = [self::LOG_LABEL => 'SYSTEM',
+                                  self::LOG_LEVEL => LogLevel::DEBUG,
+                                  self::SAVE_PATH => __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR .
+                                                     'logs' . DIRECTORY_SEPARATOR . date('Y-m-d') . '.log'];
             }
         }
     }
