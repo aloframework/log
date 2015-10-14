@@ -18,7 +18,7 @@ before_script:
 
 script:
   - mkdir -p build/coverage
-  - phpunit --coverage-text --coverage-clover=build/coverage/clover.xml
+  - phpunit --coverage-clover=build/coverage/clover.xml
 
 after_script:
  - chmod 777 build/coverage/clover.xml
