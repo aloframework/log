@@ -8,10 +8,11 @@ A simple, configurable logger implementing the [PSR-3 standards interface](https
 
 Latest release API documentation: [https://aloframework.github.io/log/](https://aloframework.github.io/log/)
 
-|                                                                                          dev-develop                                                                                         |                                                             Latest release                                                            |
-|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
-| [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=develop)](https://travis-ci.org/aloframework/log)                                                                     | [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=1.4)](https://travis-ci.org/aloframework/log)            |
-| [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/mini.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) | [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) |
+|                                                                                         dev-develop                                                                                         |                                                                                Release                                                                               |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|                                   [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=develop)](https://travis-ci.org/aloframework/log)                                  |                      [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=master)](https://travis-ci.org/aloframework/log)                     |
+| [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/mini.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) |                 [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe)                |
+| [![Coverage Status](https://coveralls.io/repos/aloframework/log/badge.svg?branch=develop&service=github)](https://coveralls.io/github/aloframework/log?branch=develop)                      | [![Coverage Status](https://coveralls.io/repos/aloframework/log/badge.svg?branch=master&service=github)](https://coveralls.io/github/aloframework/log?branch=master) |
 
 
 ## Installation ##
@@ -25,19 +26,15 @@ Installation is available via Composer:
 	
 		use AloFramework\Log\Log;
 		
-		// $logLevel = one of the class' constants, the standard debug to emergency levels. Messages below this level will not be logged.
-		// $logLabel = however you want to identify entries from this specific log, e.g. [SYSTEM]
-		// $pathToLogFile = The path to where the log file will be located
-		$log = new Log($logLevel, $logLabel, $pathToLogFile);
-		
+		$log = new Log();
 		$log->notice('My notice message');
 		$log->error('An error message');
 
 ## Configuration ##
+General configuration guidelines can be found [here](https://github.com/aloframework/config).
 
-Default settings can be overwritten by defining the following constants before calling the composer autoload file:
+There are 3 configuration keys available:
 
- - **ALO_LOG_LABEL** - the label to use for log entries, defaults to **SYSTEM**.
-	 - Example: `define('ALO_LOG_LABEL', 'MyLog');`
- - **ALO_LOG_SAVE_PATH** - the default path to the log file, defaults to **vendor/aloframework/log/src/logs/YYYY-mm-dd.log**.
-	 - Example: `define('ALO_LOG_SAVE_PATH', '/var/log/my-app/' . date('Y-m-d') . '.log');`
+ - `Config::LOG_LABEL`: How the log entries will get labelled (default: `SYSTEM`)
+ - `Config::LOG_LEVEL`: Minimum log level to log (default: `LogLevel::DEBUG`)
+ - `Config::SAVE_PATH`: The log file's location (default: `src/logs/YYYY-mm-dd.log`)
