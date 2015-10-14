@@ -10,10 +10,10 @@ php:
 
 before_install:
   - mkdir -p /home/travis/.phpenv/versions/hhvm/etc
+  - composer self-update
 
 before_script:
   - phpenv config-add phpunit.cnf.ini
-  - composer self-update
   - composer update --no-dev
 
 script: phpunit --stderr --coverage-text
