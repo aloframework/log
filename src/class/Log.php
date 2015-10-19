@@ -69,6 +69,12 @@
                                     self::EMERGENCY => 8];
 
         /**
+         * fopen() resouce
+         * @var resource
+         */
+        private $fp;
+
+        /**
          * Constructor.
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -79,6 +85,27 @@
          */
         public function __construct(Config $cfg = null) {
             $this->config = Alo::ifnull($cfg, new Config());
+        }
+
+        /**
+         * Cleanup operations
+         * @author Art <a.molcanovas@gmail.com>
+         */
+        function __destruct() {
+            $this->fclose();
+        }
+
+        /**
+         * Closes the handler
+         * @author Art <a.molcanovas@gmail.com>
+         * @return self
+         */
+        private function fclose() {
+            if ($this->fp) {
+                fclose($this->fp);
+            }
+
+            return $this;
         }
 
         /**
@@ -180,15 +207,14 @@
          */
         private function doWrite($level, $message) {
             $this->lastMessage = $message;
-            $fp                = fopen($this->config->savePath, 'ab');
+            $this->fopen();
 
-            if ($fp) {
+            if ($this->fp) {
                 $message               = $this->buildMessage($level, $message);
                 $this->lastMessageFull = $message;
-                $ok                    = [flock($fp, LOCK_EX),
-                                          fwrite($fp, $message),
-                                          flock($fp, LOCK_UN),
-                                          fclose($fp)];
+                $ok                    = [flock($this->fp, LOCK_EX),
+                                          fwrite($this->fp, $message),
+                                          flock($this->fp, LOCK_UN)];
 
                 return !in_array(false, $ok, true);
             }
@@ -196,6 +222,23 @@
             // @codeCoverageIgnoreStart
             return false;
             // @codeCoverageIgnoreEnd
+        }
+
+        /**
+         * Opens the file handler
+         * @author Art <a.molcanovas@gmail.com>
+         *
+         * @param bool $force Whether to force it
+         *
+         * @return self
+         */
+        private function fopen($force = false) {
+            if ($force || !$this->fp) {
+                $this->fclose();
+                $this->fp = fopen($this->config->savePath, 'ab');
+            }
+
+            return $this;
         }
 
         /**
