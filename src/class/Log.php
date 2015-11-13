@@ -3,11 +3,11 @@
     namespace AloFramework\Log;
 
     use AloFramework\Common\Alo;
+    use AloFramework\Config\Configurable;
+    use AloFramework\Config\ConfigurableTrait;
     use Psr\Log\LoggerInterface;
     use Psr\Log\LoggerTrait;
     use Psr\Log\LogLevel;
-    use AloFramework\Config\Configurable;
-    use AloFramework\Config\ConfigurableTrait;
 
     /**
      * AloFramework logger.
@@ -101,7 +101,7 @@
          * @return self
          */
         private function fclose() {
-            if ($this->fp) {
+            if ($this->fp && is_resource($this->fp)) {
                 fclose($this->fp);
             }
 
@@ -209,7 +209,7 @@
             $this->lastMessage = $message;
             $this->fopen();
 
-            if ($this->fp) {
+            if ($this->fp && is_resource($this->fp)) {
                 $message               = $this->buildMessage($level, $message);
                 $this->lastMessageFull = $message;
                 $ok                    = [flock($this->fp, LOCK_EX),
