@@ -1,10 +1,26 @@
 <?php
+    /**
+ *    Copyright (c) Arturas Molcanovas <a.molcanovas@gmail.com> 2016.
+ *    https://github.com/aloframework/log
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
 
     namespace AloFramework\Log\Tests;
 
-    use PHPUnit_Framework_TestCase;
     use AloFramework\Log\Config as Cfg;
     use AloFramework\Log\InvalidArgumentException;
+    use PHPUnit_Framework_TestCase;
     use Psr\Log\LogLevel;
 
     class ConfigTest extends PHPUnit_Framework_TestCase {
@@ -14,10 +30,11 @@
 
             $this->assertEquals(LogLevel::DEBUG, $cfg->logLevel);
             $this->assertEquals('SYSTEM', $cfg->logLabel);
+            $this->assertTrue($cfg->lock);
         }
 
         function testGoodSavePath() {
-            $cfg           = new Cfg();
+            $cfg = new Cfg();
             $cfg->savePath = 'foo.log';
 
             $this->assertEquals('foo.log', $cfg->savePath);
@@ -46,7 +63,7 @@
         }
 
         function testGoodLevel() {
-            $c           = new Cfg();
+            $c = new Cfg();
             $c->logLevel = LogLevel::ALERT;
 
             $this->assertEquals(LogLevel::ALERT, $c->logLevel);
@@ -82,7 +99,7 @@
         }
 
         function testCustomSetting() {
-            $c        = new Cfg();
+            $c = new Cfg();
             $c['foo'] = 'bar';
 
             $this->assertEquals('bar', $c['foo']);

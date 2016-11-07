@@ -37,4 +37,5 @@ There are 3 configuration keys available:
 
  - `Config::LOG_LABEL`: How the log entries will get labelled (default: `SYSTEM`)
  - `Config::LOG_LEVEL`: Minimum log level to log (default: `LogLevel::DEBUG`)
- - `Config::SAVE_PATH`: The log file's location (default: `src/logs/YYYY-mm-dd.log`)
+ - `Config::SAVE_PATH`: The log file's location (default: `src/logs/YYYY-mm-dd.log`). Alternatively, you can pass a file handle (opened by `fopen()`)
+ - `Config::LOCK_FILE`: Controls whether file locking should take place while writing log entries (default: `true`)

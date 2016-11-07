@@ -1,4 +1,21 @@
 
+/*
+ *    Copyright (c) Arturas Molcanovas <a.molcanovas@gmail.com> 2016.
+ *    https://github.com/aloframework/log
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
 var ApiGen = ApiGen || {};
 ApiGen.config = {"options":{"elementDetailsCollapsed":true,"elementsOrder":"natural"},"name":"Twitter Bootstrap theme","templatesPath":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src","resources":{"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/resources":"resources"},"templates":{"overview":{"filename":"index.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/overview.latte"},"combined":{"filename":"resources\/combined.js","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/combined.js.latte"},"elementlist":{"filename":"elementlist.js","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/elementlist.js.latte"},"404":{"filename":"404.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/404.latte"},"package":{"filename":"package-%s.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/package.latte"},"namespace":{"filename":"namespace-%s.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/namespace.latte"},"class":{"filename":"class-%s.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/class.latte"},"constant":{"filename":"constant-%s.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/constant.latte"},"function":{"filename":"function-%s.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/function.latte"},"annotationGroup":{"filename":"annotation-group-%s.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/annotation-group.latte"},"source":{"filename":"source-%s.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/source.latte"},"tree":{"filename":"tree.html","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/tree.latte"},"sitemap":{"filename":"sitemap.xml","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/sitemap.xml.latte"},"opensearch":{"filename":"opensearch.xml","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/opensearch.xml.latte"},"robots":{"filename":"robots.txt","template":"\/home\/art\/.composer\/vendor\/apigen\/apigen\/bin\/..\/..\/..\/..\/vendor\/apigen\/theme-bootstrap\/src\/robots.txt.latte"}}};
 
@@ -147,9 +164,8 @@ u[o]&&(delete u[o],c?delete n[l]:typeof n.removeAttribute!==i?n.removeAttribute(
  *
  */
 
-;(function($) {
-
-$.fn.extend({
+(function ($) {
+    $.fn.extend({
 	autocomplete: function(urlOrData, options) {
 		var isUrl = typeof urlOrData == "string";
 		options = $.extend({}, $.Autocompleter.defaults, {
@@ -408,9 +424,9 @@ $.Autocompleter = function(input, options) {
 			stopLoading();
 			select.hide();
 		}
-	};
+    }
 
-	function trimWords(value) {
+    function trimWords(value) {
 		if (!value)
 			return [""];
 		if (!options.multiple)
@@ -447,14 +463,14 @@ $.Autocompleter = function(input, options) {
 			// select the portion of the value not typed by the user (so the next character will erase)
 			$(input).selection(previousValue.length, previousValue.length + sValue.length);
 		}
-	};
+    }
 
-	function hideResults() {
+    function hideResults() {
 		clearTimeout(timeout);
 		timeout = setTimeout(hideResultsNow, 200);
-	};
+    }
 
-	function hideResultsNow() {
+    function hideResultsNow() {
 		var wasVisible = select.visible();
 		select.hide();
 		clearTimeout(timeout);
@@ -477,9 +493,9 @@ $.Autocompleter = function(input, options) {
 				}
 			);
 		}
-	};
+    }
 
-	function receiveData(q, data) {
+    function receiveData(q, data) {
 		if ( data && data.length && hasFocus ) {
 			stopLoading();
 			select.display(data, q);
@@ -488,9 +504,9 @@ $.Autocompleter = function(input, options) {
 		} else {
 			hideResultsNow();
 		}
-	};
+    }
 
-	function request(term, success, failure) {
+    function request(term, success, failure) {
 		if (!options.matchCase)
 			term = term.toLowerCase();
 		var data = cache.load(term);
@@ -540,9 +556,9 @@ $.Autocompleter = function(input, options) {
         failure(term);
 			}
 		}
-	};
+    }
 
-	function parse(data) {
+    function parse(data) {
 		var parsed = [];
 		var rows = data.split("\n");
 		for (var i=0; i < rows.length; i++) {
@@ -557,12 +573,11 @@ $.Autocompleter = function(input, options) {
 			}
 		}
 		return parsed;
-	};
+    }
 
-	function stopLoading() {
+    function stopLoading() {
 		$input.removeClass(options.loadingClass);
-	};
-
+    }
 };
 
 $.Autocompleter.defaults = {
@@ -604,9 +619,9 @@ $.Autocompleter.Cache = function(options) {
 		return (new RegExp(sub.toUpperCase().replace(/([\^\$\(\)\[\]\{\}\*\.\+\?\|\\])/gi, "\\$1").replace(/[A-Z0-9]/g, function(m, offset) {
 			return offset === 0 ? '(?:' + m + '|^' + m.toLowerCase() + ')' : '(?:.*' + m + '|' + m.toLowerCase() + ')';
 		}))).test(s); // find by initials
-	};
+    }
 
-	function add(q, value) {
+    function add(q, value) {
 		if (length > options.cacheLength){
 			flush();
 		}
@@ -657,9 +672,8 @@ $.Autocompleter.Cache = function(options) {
 			if ( nullData++ < options.max ) {
 				stMatchSets[""].push(row);
 			}
-		};
-
-		// add the data items to the cache
+        }
+        // add the data items to the cache
 		$.each(stMatchSets, function(i, value) {
 			// increase the cache size
 			options.cacheLength++;
@@ -807,9 +821,9 @@ $.Autocompleter.Select = function (options, input, select, config) {
                 list.scrollTop(offset);
             }
         }
-	};
+    }
 
-	function movePosition(step) {
+    function movePosition(step) {
 		if (options.scrollJumpPosition || (!options.scrollJumpPosition && !((step < 0 && active == 0) || (step > 0 && active == listItems.size() - 1)) )) {
 			active += step;
 			if (active < 0) {
@@ -1180,11 +1194,11 @@ jQuery.fn.sortElements = (function(){
 		$(document.body).on('click', 'tr', function(ev) {
 
 			var short = this.querySelector('.short')
-			, detailed = this.querySelector('.detailed')
+                , detailed = this.querySelector('.detailed');
 
-			if (!short || !detailed) return
+            if (!short || !detailed) return;
 
-			$(short).toggleClass('hidden')
+            $(short).toggleClass('hidden');
 			$(detailed).toggleClass('hidden')
 
 		})

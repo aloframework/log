@@ -1,28 +1,43 @@
 <?php
+    /**
+ *    Copyright (c) Arturas Molcanovas <a.molcanovas@gmail.com> 2016.
+ *    https://github.com/aloframework/log
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
 
     namespace AloFramework\Log\Tests;
 
-    use PHPUnit_Framework_TestCase;
     use AloFramework\Log\Config as Cfg;
-    use AloFramework\Log\Log;
     use AloFramework\Log\InvalidArgumentException;
-    use PHPUnit_Framework_Error;
+    use AloFramework\Log\Log;
+    use PHPUnit_Framework_TestCase;
 
     class Extender extends Log {
 
-        protected function time() {
-            return date('Y');
-        }
-
         protected function buildMessage($level, $text) {
             return $level . '|' . $text . '|' . $this->time();
+        }
+
+        protected function time() {
+            return date('Y');
         }
     }
 
     class LogTest extends PHPUnit_Framework_TestCase {
 
         function testDefaultConstruct() {
-            $cfg   = (new Cfg())->getAll();
+            $cfg = (new Cfg())->getAll();
             $class = (new Log())->getFullConfig();
 
             $this->assertEquals($cfg, $class);
@@ -31,7 +46,7 @@
         function testCustomConstruct() {
             $my = ['foo', 'bar'];
 
-            $cfg   = new Cfg($my);
+            $cfg = new Cfg($my);
             $class = (new Log($cfg))->getFullConfig();
 
             $this->assertEquals($cfg->getAll(), $class);
@@ -51,13 +66,13 @@
         }
 
         function testGetLastMessage() {
-            $msg  = mt_rand(~PHP_INT_MAX, PHP_INT_MAX) . 'testGetLastMessage';
+            $msg = mt_rand(~PHP_INT_MAX, PHP_INT_MAX) . 'testGetLastMessage';
             $time = date('Y-m-d H:i:s');
-            $log  = new Log();
+            $log = new Log();
             $log->debug($msg);
 
             //Get the line above
-            $php  = explode(PHP_EOL, file_get_contents(__FILE__));
+            $php = explode(PHP_EOL, file_get_contents(__FILE__));
             $line = 57;
             foreach ($php as $k => $v) {
                 if (stripos($v, '') !== false) {
@@ -77,8 +92,8 @@
         }
 
         function testToString() {
-            $c      = new Cfg();
-            $l      = new Log();
+            $c = new Cfg();
+            $l = new Log();
             $expect =
                 'Label: ' . $c->logLabel . ', ' . PHP_EOL . 'Level: ' . $c->logLevel . ', ' . PHP_EOL . 'Save path: ' .
                 $c->savePath;
@@ -102,7 +117,7 @@
         }
 
         function logPrioProvider() {
-            $r    = [];
+            $r = [];
             $prio = Log::getPriority();
 
             foreach ($prio as $level1 => $prio1) {

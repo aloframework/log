@@ -1,4 +1,20 @@
 <?php
+    /**
+ *    Copyright (c) Arturas Molcanovas <a.molcanovas@gmail.com> 2016.
+ *    https://github.com/aloframework/log
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
 
     namespace AloFramework\Log;
 
@@ -32,14 +48,6 @@
          * @since 1.2 is a constant, not private static
          */
         const SEPARATOR = '|';
-
-        /**
-         * The previously logged message text
-         *
-         * @var string
-         */
-        private $lastMessage;
-
         /**
          * File name fragments to ignore when generating the backtrace
          *
@@ -47,13 +55,6 @@
          * @since 1.3
          */
         protected static $ignoredFiles = ['Log.php'];
-
-        /**
-         * The last message including any formatting/extra params
-         * @var string
-         */
-        private $lastMessageFull;
-
         /**
          * Log levels and their priorities.
          *
@@ -67,9 +68,21 @@
                                     self::CRITICAL  => 6,
                                     self::ALERT     => 7,
                                     self::EMERGENCY => 8];
-
+        /**
+         * The previously logged message text
+         *
+         * @var string
+         */
+        private $lastMessage;
+        /**
+         * The last message including any formatting/extra params
+         *
+         * @var string
+         */
+        private $lastMessageFull;
         /**
          * fopen() resouce
+         *
          * @var resource
          */
         private $fp;
@@ -88,7 +101,18 @@
         }
 
         /**
+         * Returns the log level priority
+         *
+         * @author Art <a.molcanovas@gmail.com>
+         * @return array
+         */
+        static function getPriority() {
+            return self::$priority;
+        }
+
+        /**
          * Cleanup operations
+         *
          * @author Art <a.molcanovas@gmail.com>
          */
         function __destruct() {
@@ -97,24 +121,16 @@
 
         /**
          * Closes the handler
+         *
          * @author Art <a.molcanovas@gmail.com>
          * @return self
          */
         private function fclose() {
-            if ($this->fp && is_resource($this->fp)) {
+            if ($this->fp && is_resource($this->fp) && !is_resource($this->config->savePath)) {
                 fclose($this->fp);
             }
 
             return $this;
-        }
-
-        /**
-         * Returns the log level priority
-         * @author Art <a.molcanovas@gmail.com>
-         * @return array
-         */
-        static function getPriority() {
-            return self::$priority;
         }
 
         /**
@@ -168,34 +184,6 @@
         }
 
         /**
-         * Returns the debug backtrace
-         *
-         * @author Art <a.molcanovas@gmail.com>
-         * @return array
-         * @since  1.3
-         */
-        protected function getBacktrace() {
-            $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-
-            if (empty($trace)) {
-                // @codeCoverageIgnoreStart
-                return [];
-                // @codeCoverageIgnoreEnd
-            } else {
-                foreach ($trace as $k => $v) {
-                    foreach (self::$ignoredFiles as $i) {
-                        if (stripos(Alo::ifnull($v['file'], ''), $i) !== false) {
-                            unset($trace[$k]);
-                            break;
-                        }
-                    }
-                }
-            }
-
-            return array_values($trace);
-        }
-
-        /**
          * Performs the actual log operation.
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -210,11 +198,11 @@
             $this->fopen();
 
             if ($this->fp && is_resource($this->fp)) {
-                $message               = $this->buildMessage($level, $message);
+                $message = $this->buildMessage($level, $message);
                 $this->lastMessageFull = $message;
-                $ok                    = [flock($this->fp, LOCK_EX),
-                                          fwrite($this->fp, $message),
-                                          flock($this->fp, LOCK_UN)];
+                $ok = $this->config->lock ? [flock($this->fp, LOCK_EX),
+                                             fwrite($this->fp, $message),
+                                             flock($this->fp, LOCK_UN)] : [fwrite($this->fp, $message)];
 
                 return !in_array(false, $ok, true);
             }
@@ -226,6 +214,7 @@
 
         /**
          * Opens the file handler
+         *
          * @author Art <a.molcanovas@gmail.com>
          *
          * @param bool $force Whether to force it
@@ -235,7 +224,8 @@
         private function fopen($force = false) {
             if ($force || !$this->fp) {
                 $this->fclose();
-                $this->fp = fopen($this->config->savePath, 'ab');
+                $this->fp = is_resource($this->config->savePath) ? $this->config->savePath
+                    : fopen($this->config->savePath, 'ab');
             }
 
             return $this;
@@ -271,6 +261,34 @@
         }
 
         /**
+         * Returns the debug backtrace
+         *
+         * @author Art <a.molcanovas@gmail.com>
+         * @return array
+         * @since  1.3
+         */
+        protected function getBacktrace() {
+            $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+
+            if (empty($trace)) {
+                // @codeCoverageIgnoreStart
+                return [];
+                // @codeCoverageIgnoreEnd
+            } else {
+                foreach ($trace as $k => $v) {
+                    foreach (self::$ignoredFiles as $i) {
+                        if (stripos(Alo::ifnull($v['file'], ''), $i) !== false) {
+                            unset($trace[$k]);
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return array_values($trace);
+        }
+
+        /**
          * Returns the current time for log messages. Added as a method so you can overwrite it to the format you want
          *
          * @author Art <a.molcanovas@gmail.com>
@@ -296,7 +314,7 @@
                 $search = $replace = [];
 
                 foreach ($context as $k => $v) {
-                    $search[]  = '{' . $k . '}';
+                    $search[] = '{' . $k . '}';
                     $replace[] = $v;
                 }
 

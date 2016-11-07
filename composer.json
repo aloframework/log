@@ -3,7 +3,7 @@
   "description": "The logger of AloFramework",
   "prefer-stable": true,
   "type": "library",
-  "license": "GPL-3.0+",
+  "license": "Apache-2.0",
   "homepage": "https://github.com/aloframework/log",
   "keywords": [
     "PHP",
@@ -33,11 +33,6 @@
   "autoload": {
     "psr-4": {
       "AloFramework\\Log\\": "src/class/"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.x-dev"
     }
   }
 }
