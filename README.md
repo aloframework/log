@@ -2,7 +2,7 @@
 
 A simple, configurable logger implementing the [PSR-3 standards interface](https://packagist.org/packages/psr/log).
 
-[![License](https://poser.pugx.org/aloframework/log/license?format=plastic)](LICENSE)
+![License](https://poser.pugx.org/aloframework/log/license?format=plastic)
 [![Latest Stable Version](https://poser.pugx.org/aloframework/log/v/stable?format=plastic)](https://packagist.org/packages/aloframework/log)
 [![Total Downloads](https://poser.pugx.org/aloframework/log/downloads?format=plastic)](https://packagist.org/packages/aloframework/log)
 
@@ -11,7 +11,6 @@ Latest release API documentation: [https://aloframework.github.io/log/](https://
 |                                                                                         dev-develop                                                                                         |                                                                                Release                                                                               |
 |:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 |                                   [![Dev Build Status](https://travis-ci.org/aloframework/log.svg?branch=develop)](https://travis-ci.org/aloframework/log)                                  |                      [![Release Build Status](https://travis-ci.org/aloframework/log.svg?branch=master)](https://travis-ci.org/aloframework/log)                     |
-| [![SensioLabsInsight](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe/mini.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe) |                 [![SensioLabsInsight](https://i.imgur.com/KygqLtf.png)](https://insight.sensiolabs.com/projects/c3500bba-d9af-4734-9dc7-31fddc7f8abe)                |
 | [![Coverage Status](https://coveralls.io/repos/aloframework/log/badge.svg?branch=develop&service=github)](https://coveralls.io/github/aloframework/log?branch=develop)                      | [![Coverage Status](https://coveralls.io/repos/aloframework/log/badge.svg?branch=master&service=github)](https://coveralls.io/github/aloframework/log?branch=master) |
 
 
