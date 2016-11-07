@@ -106,7 +106,7 @@
          * @author Art <a.molcanovas@gmail.com>
          * @return array
          */
-        static function getPriority() {
+        public static function getPriority() {
             return self::$priority;
         }
 
@@ -115,7 +115,7 @@
          *
          * @author Art <a.molcanovas@gmail.com>
          */
-        function __destruct() {
+        public function __destruct() {
             $this->fclose();
         }
 
@@ -144,7 +144,7 @@
          * @since  2.0 $full added<br/>
          *         1.1
          */
-        function getLastMessage($full = false) {
+        public function getLastMessage($full = false) {
             return $full ? $this->lastMessageFull : $this->lastMessage;
         }
 

@@ -75,7 +75,7 @@
          *
          * @param array $cfg Your custom configuration parameters
          */
-        function __construct(array $cfg = []) {
+        public function __construct(array $cfg = []) {
             parent::__construct(self::$default);
 
             foreach ($cfg as $k => $v) {
@@ -95,7 +95,7 @@
          * @return self
          * @throws InvalidArgumentException if a parameter is... invalid.
          */
-        function set($k, $v) {
+        public function set($k, $v) {
             switch ($k) {
                 case self::LOG_LABEL:
                     $ok = $this->checkLogLabel($v);
