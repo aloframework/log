@@ -73,7 +73,7 @@
 
             //Get the line above
             $php = explode(PHP_EOL, file_get_contents(__FILE__));
-            $line = 57;
+            $line = 72;
             foreach ($php as $k => $v) {
                 if (stripos($v, '') !== false) {
                     $line = $k;
