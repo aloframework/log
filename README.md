@@ -32,7 +32,7 @@ Installation is available via Composer:
 ## Configuration ##
 General configuration guidelines can be found [here](https://github.com/aloframework/config).
 
-There are 3 configuration keys available:
+The following configuration keys available:
 
  - `Config::LOG_LABEL`: How the log entries will get labelled (default: `SYSTEM`)
  - `Config::LOG_LEVEL`: Minimum log level to log (default: `LogLevel::DEBUG`)
