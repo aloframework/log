@@ -21,13 +21,15 @@ Installation is available via Composer:
 
 ## Usage ##
 
-    <?php
-	
-		use AloFramework\Log\Log;
-		
-		$log = new Log();
-		$log->notice('My notice message');
-		$log->error('An error message');
+```php
+<?php
+
+    use AloFramework\Log\Log;
+    
+    $log = new Log();
+    $log->notice('My notice message');
+    $log->error('An error message');
+```
 
 ## Configuration ##
 General configuration guidelines can be found [here](https://github.com/aloframework/config).
